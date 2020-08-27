@@ -4,11 +4,20 @@ import styles from '../../styles/References.module.scss'
 import {Layout} from '../../components'
 
 
-export default function Reference({ reference }) {
-  console.log(reference)
+export default function Reference({ r, slices }) {
+  console.log(r)
+  console.log(slices)
   return (
     <Layout>
-      <h1>Je suis une page reference</h1>
+      <div className={styles.refhead}>
+        <figure>
+          <img src={r.cover.url} alt={r.cover.alt}/>
+        </figure>
+        <div className={styles.refinfo}>
+          <h1>{r.artist_name[0].text}</h1>
+          <h2>{r.track_name[0].text}</h2>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -27,12 +36,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const reference = await Client().getByUID('reference', params.uid)
+  const req = await Client().getByUID('reference', params.uid)
+  const r = req.data
+  const slices = req.data.body
 
   return {
     props: {
-      // slices: reference.data.body,
-      reference
+      r,
+      slices
     }
   }
 }

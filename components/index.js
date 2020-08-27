@@ -1,5 +1,7 @@
 export { default as Header } from './Header/Header'
 export { default as Nav } from './Nav/Nav'
 export { default as Layout } from './Layout/Layout'
+// export { default as SmartLink } from './Link/Link'
 export { default as RefCard } from './RefCard/RefCard'
+export { default as SmpCard } from './SmpCard/SmpCard'
 export { default as Footer } from './Footer/Footer'

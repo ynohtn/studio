@@ -17,7 +17,9 @@ export default function References({ res, items }) {
       <Head>
         <title>REFERENCES</title>
       </Head>
+
       <h1>{res.data.single_title[0].text}</h1>
+      
       <ul className={styles.grid}>
         {items.map((item, i) => (
           <NextLink key={i} href={`references/${item.reference.uid}`}>

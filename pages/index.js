@@ -15,7 +15,7 @@ export default function Home({ res }) {
       </Head>
 
       <div className={styles.main}>
-        HOMEPAGE
+        STUDIO
       </div>
 
     </Layout>
