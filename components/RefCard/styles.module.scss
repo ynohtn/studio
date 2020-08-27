@@ -1,0 +1,30 @@
+.refcard {
+  position: relative;
+
+  figure {
+    max-width: 250px;
+    width: 100%;
+    
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.refcardcontent {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 125px);
+  width: 100%;
+  text-align: center;
+  background: white;
+
+  h3 {
+    padding: 8px;
+  }
+
+  p {
+    padding: 8px;
+    padding-top: 0;
+  }
+}

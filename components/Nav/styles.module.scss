@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  padding: 24px 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  li {
+
+    a {
+      color: white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

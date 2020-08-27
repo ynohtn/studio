@@ -1,0 +1,10 @@
+// INDEX STYLE
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 250px);
+  grid-template-rows: repeat(6, 250px);
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+
+// UID STYLE
