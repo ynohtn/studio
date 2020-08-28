@@ -7,6 +7,7 @@ import {Layout} from '../../components'
 export default function Reference({ r, slices }) {
   console.log(r)
   console.log(slices)
+  
   return (
     <Layout>
       <div className={styles.refhead}>

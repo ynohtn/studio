@@ -1,5 +1,6 @@
 .refcard {
   position: relative;
+  max-height: 250px;
 
   figure {
     max-width: 250px;
@@ -7,6 +8,7 @@
     
     img {
       width: 100%;
+      object-fit: cover;
     }
   }
 }
