@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Client } from '../lib/prismic-configuration'
-import { Layout } from '../components'
+import { Layout, SliceZone } from '../components'
 import styles from '../styles/Home.module.scss'
 
 export default function Home({ res }) {
@@ -14,8 +14,9 @@ export default function Home({ res }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.main}>
-        STUDIO
+      <div>
+        <h1>STUDIO</h1>
+        <SliceZone sliceZone={res.data.page_content} />
       </div>
 
     </Layout>

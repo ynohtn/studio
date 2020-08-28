@@ -5,11 +5,11 @@ import styles from '../../styles/Samples.module.scss'
 
 import Head from 'next/head'
 import { default as NextLink } from 'next/link'
-import { Layout, SmpCard, SmartLink } from '../../components'
+import { Layout, SmpCard  } from '../../components'
 
 
 export default function Samples({ res, items }) {
-  
+
   console.log(res)
   console.log(items)
 
