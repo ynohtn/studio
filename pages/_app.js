@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Header } from '../components'
+import { Header, Background } from '../components'
 import {AnimatePresence} from 'framer-motion'
 import '../styles/_globals.scss'
 
@@ -13,6 +13,7 @@ const App = ({ Component, pageProps }) => {
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} />
       </AnimatePresence>
+      <Background />
     </>
   )
 }
