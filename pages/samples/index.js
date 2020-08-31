@@ -30,12 +30,12 @@ export default function Samples({ res, items }) {
           {items.map((item, i) => (
             <motion.div key={i} variants={fadeInUp}>
               <NextLink href={`samples/${item.sample.uid}`}>
-                  <a>
-                    <SmpCard
-                      name={item.sample.pack_name[0].text}
-                      cover={item.sample.pack_cover}
-                    />
-                  </a>
+                <a>
+                  <SmpCard
+                    name={item.sample.pack_name[0].text}
+                    cover={item.sample.pack_cover}
+                  />
+                </a>
               </NextLink>
             </motion.div>
           ))}
