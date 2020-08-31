@@ -44,8 +44,10 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  const req = await Client().getByUID('reference', params.uid)
+export async function getStaticProps({ params, preview = null, previewData = {} }) {
+  const { ref } = previewData
+
+  const req = await Client().getByUID('reference', params.uid, ref ? { ref } : null) || {}
   const r = req.data
   const slices = req.data.body
 

@@ -15,9 +15,9 @@
 
 .layout_post {
   display: grid;
-  justify-content: center;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  justify-content: center;
   gap: 16px;
 
   max-width: 1024px;

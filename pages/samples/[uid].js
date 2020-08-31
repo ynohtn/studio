@@ -43,24 +43,19 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  const req = await Client().getByUID('sample_pack', params.uid)
+export async function getStaticProps({ params, preview = null, previewData = {} }) {
+  const { ref } = previewData
+  const req = await Client().getByUID('sample_pack', params.uid, ref ? { ref } : null) || {}
 
   // All slices
   const slices = req.data.body
-  
-  // Slice content
-  // const index = slices.findIndex((data) => data['slice_type'])
-  // const slc = slices[index]
-
   // Sample pack
   const smp = req.data
 
   return {
     props: {
       smp,
-      slices,
-      // slc
+      slices
     }
   }
 }
