@@ -3,15 +3,15 @@
 // PAGE STYLE
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(333px, 1fr));
-  grid-template-rows: 1fr;
-
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  grid-template-rows:1fr;
   gap: 16px;
+
   overflow-y: scroll;
-  height: 80vh;
+  height: 75vh;
   margin-top: 32px;
 
-  a {
+  > div {
 
     &:last-child {
       margin-bottom: 72px;

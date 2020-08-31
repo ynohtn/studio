@@ -1,7 +1,7 @@
 import { default as NextLink } from 'next/link'
 import { Link } from 'prismic-reactjs'
 
-import { linkResolver, hrefResolver } from '../../lib/prismic-configuration'
+// import { linkResolver, hrefResolver } from '../../lib/prismic-configuration'
 
 // TODO : LINK RESOLVING SHIT -- COMPONENT UNUSED FOR NOW
 // Main SmartLink component function for generating links to other pages on this site

@@ -2,30 +2,25 @@
 
 .smpcard {
   position: relative;
-  max-height: 484px;
 
   figure {
-    // max-width: 333px;
     width: 100%;
-    overflow: hidden;
-    max-height: 484px;
+    // max-width: 288px;
 
-    
     img {
       width: 100%;
-      max-height: 484px;
+      max-height: 288px;
       object-fit: cover;
     }
   }
 }
 
 .smpcardcontent {
-  position: relative;
-  bottom: 34px;
-  // left: calc(50% - 166.5px);
+  position: absolute;
+  bottom: 0px;
   width: 100%;
   text-align: center;
-  background: white;
+  background: $white;
 
   h3 {
     padding: 8px;

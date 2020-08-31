@@ -1,6 +1,6 @@
 import { Client } from '../../lib/prismic-configuration'
 import { default as NextLink } from 'next/link'
-
+import { motion } from 'framer-motion'
 import styles from '../../styles/About.module.scss'
 import Head from 'next/head'
 import { Layout, SliceZone } from '../../components'
@@ -13,20 +13,26 @@ export default function About({ res, slices }) {
 
 
   return (
-    <Layout>
-      <Head>
-        <title>ABOUT</title>
-      </Head>
-      <h1>ABOUT PAGE</h1>
-      <section className={styles.aboutbody}>
-        <SliceZone sliceZone={slices} />
-      </section>
-      <h2>
-        <NextLink href="/">
-          <a>Back to home</a>
-        </NextLink>
-      </h2>
-    </Layout>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Layout>
+        <Head>
+          <title>ABOUT</title>
+        </Head>
+        <h1>ABOUT PAGE</h1>
+        <section className={styles.aboutbody}>
+          <SliceZone sliceZone={slices} />
+        </section>
+        <h2>
+          <NextLink href="/">
+            <a>Back to home</a>
+          </NextLink>
+        </h2>
+      </Layout>
+    </motion.div>
   )
 }
 

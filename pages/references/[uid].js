@@ -1,5 +1,6 @@
 import { Client } from '../../lib/prismic-configuration'
 import { getReferences } from '../../lib/api'
+import { motion } from 'framer-motion'
 import styles from '../../styles/References.module.scss'
 import Head from 'next/head'
 import { Layout, SliceZone} from '../../components'
@@ -10,24 +11,30 @@ export default function Reference({ r, slices }) {
   console.log(slices)
   
   return (
-    <Layout isPost={true}>
-      <Head>
-        <title>{`${r.artist_name[0].text}`}</title>
-      </Head>
-      <section className={styles.refhead}>
-        <figure>
-          <img src={r.cover.url} alt={r.cover.alt}/>
-        </figure>
-        <div className={styles.refinfo}>
-          <h1>{r.artist_name[0].text}</h1>
-          <h2>{r.track_name[0].text}</h2>
-        </div>
-      </section>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Layout isPost={true}>
+        <Head>
+          <title>{`${r.artist_name[0].text}`}</title>
+        </Head>
+        <section className={styles.refhead}>
+          <figure>
+            <img src={r.cover.url} alt={r.cover.alt}/>
+          </figure>
+          <div className={styles.refinfo}>
+            <h1>{r.artist_name[0].text}</h1>
+            <h2>{r.track_name[0].text}</h2>
+          </div>
+        </section>
 
-      <section className={styles.refbody}>
-        <SliceZone sliceZone={slices} />
-      </section>
-    </Layout>
+        <section className={styles.refbody}>
+          <SliceZone sliceZone={slices} />
+        </section>
+      </Layout>
+    </motion.div>
   )
 }
 
