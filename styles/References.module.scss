@@ -46,7 +46,8 @@
 .refbody {
   overflow-x: hidden;
   overflow-y: hidden;
-  
+  padding-right: 32px;
+
   @include breakpoint($tab) {
     overflow-y: scroll;
   }

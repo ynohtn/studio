@@ -29,7 +29,7 @@ export default function SamplePack({ smp, slices }) {
             <h1>{smp.pack_name[0].text}</h1>
           </div>
         </section>
-        <section className="styles.smpbody">
+        <section className={styles.smpbody}>
           <SliceZone sliceZone={slices} />
         </section>
       </Layout>
