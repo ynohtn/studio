@@ -1,20 +1,28 @@
 @import './settings/vars';
 
-// INDEX STYLE
+// PAGE STYLE
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 250px);
-  grid-template-rows: repeat(6, 250px);
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(333px, 1fr));
+  grid-template-rows: 1fr;
+
+  gap: 16px;
+  overflow-y: scroll;
+  height: 80vh;
+  margin-top: 32px;
+
+  a {
+
+    &:last-child {
+      margin-bottom: 72px;
+    }
+  }
 }
 
-// UID STYLE
+// POST STYLE
 .refhead {
 
   figure {
-    max-width: 250px;
-    max-height: 250px;
     width: 100%;
     
     img {
@@ -32,5 +40,14 @@
 
   h2 {
 
+  }
+}
+
+.refbody {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  
+  @include breakpoint($tab) {
+    overflow-y: scroll;
   }
 }

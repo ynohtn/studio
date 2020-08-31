@@ -6,12 +6,12 @@ import { Layout, SliceZone } from '../../components'
 
 
 export default function SamplePack({ smp, slices }) {
-  // console.log(smp)
+  console.log(smp)
   console.log(slices)
   // console.log(slc)
 
   return (
-    <Layout>
+    <Layout isPost={true}>
       <Head>
         <title>{`${smp.pack_name[0].text} pack`}</title>
       </Head>

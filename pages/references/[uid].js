@@ -10,7 +10,7 @@ export default function Reference({ r, slices }) {
   console.log(slices)
   
   return (
-    <Layout>
+    <Layout isPost={true}>
       <Head>
         <title>{`${r.artist_name[0].text}`}</title>
       </Head>
@@ -24,7 +24,7 @@ export default function Reference({ r, slices }) {
         </div>
       </section>
 
-      <section className="styles.refbody">
+      <section className={styles.refbody}>
         <SliceZone sliceZone={slices} />
       </section>
     </Layout>

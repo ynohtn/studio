@@ -9,11 +9,11 @@ import {
 } from './'
 
 const SliceZone = ({ sliceZone }) => (
-  <div className="container">
+  <div className="slice-ctn">
     {sliceZone.map((slice, index) => {
       switch (slice.slice_type) {
         case ('text'):
-          return <TextSection slice={slice} key={`slice-${index}`} />
+          return <TextSection slice={slice} key={index} index={index} />
         case ('quote'):
           return <Quote slice={slice} key={`slice-${index}`} />
         case ('image'):

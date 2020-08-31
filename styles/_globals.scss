@@ -3,9 +3,12 @@
 
 // GLOBAL STYLE
 body {
-  background: black;
+  background: $black;
   color: $white;
   font-family: $mr;
+  line-height: 28px;
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,6 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 48px;
+  line-height: 42px;
 }
 
 h2 {
@@ -22,4 +26,41 @@ h2 {
 
 h3 {
   font-size: 16px;
+}
+
+// SLICEZONE
+.slice-ctn {
+  overflow: hidden;
+
+  // RICHTEXT IMG BLOCK
+  p.block-img {
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  section.content-section {
+    margin: 66px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    
+    p {
+      margin: 33px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    // SOUNDCLOUD
+    .embed-soundcloud {
+      width: 100%;
+    }
+  }
 }
