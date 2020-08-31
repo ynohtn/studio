@@ -1,6 +1,6 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { linkResolver, customLink } from '../../lib/prismic-configuration'
+// import { linkResolver, customLink } from '../../lib/prismic-configuration'
 
 const TextSection = ({ slice, index }) => {
   const sectionClass =
@@ -12,9 +12,9 @@ const TextSection = ({ slice, index }) => {
     <section className={`content-section ${sectionClass}`}>
       <RichText
         render={slice.primary.text}
-        linkResolver={linkResolver}
-        serializeHyperlink={customLink}
-        // key={}
+        // linkResolver={linkResolver}
+        // serializeHyperlink={customLink}
+        key={index}
       />
     </section>
   )
