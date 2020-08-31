@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Client } from '../lib/prismic-configuration'
+import { motion } from 'framer-motion'
 import { Layout, SliceZone } from '../components'
 import styles from '../styles/Home.module.scss'
 
@@ -8,18 +9,24 @@ export default function Home({ res }) {
   console.log(res)
 
   return (
-    <Layout>
-      <Head>
-        <title>STUDIO</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Layout>
+        <Head>
+          <title>STUDIO</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <div>
-        <h1>STUDIO</h1>
-        <SliceZone sliceZone={res.data.page_content} />
-      </div>
+        <div>
+          <h1>STUDIO</h1>
+          <SliceZone sliceZone={res.data.page_content} />
+        </div>
 
-    </Layout>
+      </Layout>
+    </motion.div>
   )
 }
 

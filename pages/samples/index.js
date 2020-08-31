@@ -1,12 +1,12 @@
 import { Client } from '../../lib/prismic-configuration'
+import { stagger, fadeInUp } from '../../lib/animation'
 import { getSamplePackData } from '../../lib/api'
-
+import { motion } from 'framer-motion'
 import styles from '../../styles/Samples.module.scss'
 
 import Head from 'next/head'
 import { default as NextLink } from 'next/link'
 import { Layout, SmpCard  } from '../../components'
-
 
 export default function Samples({ res, items }) {
 
@@ -14,31 +14,39 @@ export default function Samples({ res, items }) {
   console.log(items)
 
   return (
-    <Layout>
-      <Head>
-        <title>SAMPLES</title>
-      </Head>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Layout>
+        <Head>
+          <title>SAMPLES</title>
+        </Head>
 
-      <h1>{res.data.samples_title[0].text}</h1>
+        <h1>{res.data.samples_title[0].text}</h1>
 
-      <ul className={styles.grid}>
-        {items.map((item, i) => (
-          <NextLink key={i} href={`samples/${item.sample.uid}`}>
-            <a>
-              <SmpCard
-                name={item.sample.pack_name[0].text}
-                cover={item.sample.pack_cover}
-              />
-            </a>
+        <motion.div variants={stagger} className={styles.grid}>
+          {items.map((item, i) => (
+            <motion.div key={i} variants={fadeInUp}>
+              <NextLink href={`samples/${item.sample.uid}`}>
+                  <a>
+                    <SmpCard
+                      name={item.sample.pack_name[0].text}
+                      cover={item.sample.pack_cover}
+                    />
+                  </a>
+              </NextLink>
+            </motion.div>
+          ))}
+        </motion.div>
+        <h2>
+          <NextLink href="/">
+            <a>Back to home</a>
           </NextLink>
-        ))}
-      </ul>
-      <h2>
-        <NextLink href="/">
-          <a>Back to home</a>
-        </NextLink>
-      </h2>
-    </Layout>
+        </h2>
+      </Layout>
+    </motion.div>
   )
 }
 

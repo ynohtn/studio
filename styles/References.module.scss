@@ -6,15 +6,12 @@
   grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
   grid-template-rows:1fr;
   gap: 16px;
+
   overflow-y: scroll;
   height: 75vh;
   margin-top: 32px;
 
-  // @include breakpoint($tab) {
-  //   grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
-  // }
-
-  a {
+  > div {
 
     &:last-child {
       margin-bottom: 72px;
