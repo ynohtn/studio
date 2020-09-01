@@ -11,6 +11,21 @@ body {
   overflow: hidden;
 }
 
+// STATIC BACKGROUND
+.static-bg {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  z-index: -666;
+  width: 100vw;
+  transform: scale(2);
+
+  img {
+    width: 100%;
+  }
+}
+
+// CUSTOM SCROLLBARS
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;
@@ -28,6 +43,7 @@ body {
   background-color: #555;
 }
 
+// TITLES
 h1, h2, h3, h4, h5, h6 {
   font-weight: $smb;
 }

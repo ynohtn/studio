@@ -2,14 +2,18 @@
 
 .smpcard {
   position: relative;
+  overflow: hidden;
+
+  &:hover > .smpcardcontent {
+    bottom: 0;
+    opacity: 1;
+  }
 
   figure {
     width: 100%;
-    // max-width: 288px;
 
     img {
       width: 100%;
-      max-height: 288px;
       object-fit: cover;
     }
   }
@@ -17,10 +21,12 @@
 
 .smpcardcontent {
   position: absolute;
-  bottom: 0px;
+  bottom: -44px;
+  opacity: 0.3;
   width: 100%;
   text-align: center;
   background: $white;
+  transition: all 0.3s ease;
 
   h3 {
     padding: 8px;

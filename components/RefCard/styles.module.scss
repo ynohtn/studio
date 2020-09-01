@@ -2,6 +2,12 @@
 
 .refcard {
   position: relative;
+  overflow: hidden;
+
+  &:hover > .refcardcontent {
+    bottom: 0;
+    opacity: 1;
+  }
 
   figure {
     
@@ -14,10 +20,12 @@
 
 .refcardcontent {
   position: absolute;
-  bottom: 0;
+  bottom: -80px;
+  opacity: 0.3;
   width: 100%;
   text-align: center;
   background: $white;
+  transition: all 0.3s ease;
 
   h3 {
     padding: 8px;

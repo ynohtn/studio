@@ -1,7 +1,9 @@
 import { Client } from '../../lib/prismic-configuration'
+import { useEffect } from 'react'
+import { gsap } from 'gsap'
+import { motion } from 'framer-motion'
 import { stagger, fadeInUp } from '../../lib/animation'
 import { getSamplePackData } from '../../lib/api'
-import { motion } from 'framer-motion'
 import styles from '../../styles/Samples.module.scss'
 
 import Head from 'next/head'
@@ -12,6 +14,21 @@ export default function Samples({ res, items }) {
 
   console.log(res)
   console.log(items)
+
+  useEffect(() => {
+    gsap.fromTo('#griditem',
+      {
+        y: 100,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.1
+      }
+    )
+  }, [])
 
   return (
     <motion.div
@@ -28,7 +45,7 @@ export default function Samples({ res, items }) {
 
         <motion.div variants={stagger} className={styles.grid}>
           {items.map((item, i) => (
-            <motion.div key={i} variants={fadeInUp}>
+            <motion.div key={i} id={`griditem`} variants={fadeInUp}>
               <NextLink href={`samples/${item.sample.uid}`}>
                 <a>
                   <SmpCard

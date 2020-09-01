@@ -20,9 +20,9 @@ export default function Home({ res }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <div>
-          <h1>STUDIO</h1>
-          <SliceZone sliceZone={res.data.page_content} />
+        <div className={styles.homectn}>
+          <h1 className={styles.hometitle}>{res.data.site_name[0].text}</h1>
+          {/* <SliceZone sliceZone={res.data.page_content} /> */}
         </div>
 
       </Layout>

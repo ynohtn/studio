@@ -1,4 +1,11 @@
-// TODO : WEBPACK CONFIG SASS VARS
+// const withTM = require('next-transpile-modules');
+// const withTM = require('next-transpile-modules')(['gsap']);
+
+// module.exports = withTM({
+//   transpileModules: ['gsap']
+// })
+
+// TODO : WEBPACK CONFIG GLOBAL SASS VARS
 // const path = require('path');
 // const withSass = require('@zeit/next-sass');
 

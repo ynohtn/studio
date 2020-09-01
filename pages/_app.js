@@ -13,6 +13,9 @@ const App = ({ Component, pageProps }) => {
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} />
       </AnimatePresence>
+      <figure className="static-bg">
+        <img src="/wavesbg.svg" alt="background" />
+      </figure>
     </>
   )
 }
