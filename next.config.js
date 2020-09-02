@@ -1,5 +1,20 @@
-// const withSass = require('@zeit/next-sass')
-// const path = require('path')
+module.exports = {
+  devIndicators: {
+    autoPrerender: false,
+  },
+}
+
+// const withTM = require('next-transpile-modules');
+// const withTM = require('next-transpile-modules')(['gsap']);
+
+// module.exports = withTM({
+//   transpileModules: ['gsap']
+// })
+
+
+// TODO : WEBPACK CONFIG GLOBAL SASS VARS
+// const path = require('path');
+// const withSass = require('@zeit/next-sass');
 
 // module.exports = withSass({
 //   cssModules: true,
@@ -9,12 +24,7 @@
 //   },
 //   sassLoaderOptions: {
 //     includePaths: ['pages'],
-//     data: '@import "config.scss";'
-//   },
-//   env: {
-//     API_URL: process.env.API_URL,
-//     ACCESS_TOKEN: process.env.ACCESS_TOKEN,
-//     WEBSITE_URL: process.env.WEBSITE_URL
+//     data: '@import '_vars.scss';'
 //   },
 //   webpack(config) {
 //     const app = './'
@@ -22,24 +32,7 @@
 //     config.resolve.alias = Object.assign(config.resolve.alias, {
 //       pages: path.resolve(app, 'pages'),
 //       components: path.resolve(app, 'components'),
-//       utils: path.resolve(app, 'utils')
-//     })
-
-//     config.module.rules.push({
-//       test: /\.svg$/,
-//       use: [
-//         {
-//           loader: '@svgr/webpack',
-//           options: { ref: true }
-//         },
-//         {
-//           loader: 'file-loader',
-//           options: {
-//             publicPath: '/_next/static/images/',
-//             outputPath: 'static/images/'
-//           }
-//         }
-//       ]
+//       styles: path.resolve(app, 'styles')
 //     })
 
 //     return config

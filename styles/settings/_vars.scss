@@ -1,0 +1,28 @@
+// FONTS
+$mr : 'Manrope', sans-serif;
+
+// COLORS
+$white: #FCFCFC;
+$black: #0E0E0E;
+$purple: #AB87FF;
+
+// VARS
+// FONT WEIGHTS
+$light: 300;
+$reg: 400;
+$smb: 600;
+$bold: 700;
+
+// FONT SIZES
+// RESPONSIVE
+// BREAKPOINTS
+$tab: 768;
+$desktop: 1024;
+$large: 1440;
+
+// MEDIA QUERY MIXIN
+@mixin breakpoint($point) {
+  @media (min-width: $point + 'px') {
+    @content;
+  }
+}

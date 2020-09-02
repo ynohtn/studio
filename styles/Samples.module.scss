@@ -1,10 +1,61 @@
+@import './settings/vars';
+
 // INDEX STYLE
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 250px);
-  grid-template-rows: repeat(6, 250px);
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  grid-template-rows: 1fr;
+  gap: 16px;
+  
+  overflow-y: scroll;
+  height: 75vh;
+  margin-top: 32px;
+  padding-right: 16px;
+
+  > div {
+
+    &:last-child {
+      margin-bottom: 72px;
+    }
+  }
 }
 
 // UID STYLE
+.smphead {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  padding-bottom: 0;
+  margin: 0 0 16px 0;
+
+  figure {
+    width: 100%;
+    
+    img {
+      width: 100%;
+      max-width: 250px;
+      max-height: 250px;
+      object-fit: cover;
+    }
+  }
+}
+
+.smpinfo {
+
+  h1 {
+
+  }
+
+}
+
+.smpbody {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-right: 16px;
+
+  @include breakpoint($tab) {
+    overflow-y: auto;
+  }
+}

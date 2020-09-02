@@ -1,15 +1,47 @@
 import { Client } from '../../lib/prismic-configuration'
 import { getReferences } from '../../lib/api'
+import { motion } from 'framer-motion'
 import styles from '../../styles/References.module.scss'
-import {Layout} from '../../components'
+import Head from 'next/head'
+import { Layout, SliceZone} from '../../components'
+import { default as NextLink } from 'next/link'
 
 
-export default function Reference({ reference }) {
-  console.log(reference)
+export default function Reference({ r, slices }) {
+  console.log(r)
+  console.log(slices)
+  
   return (
-    <Layout>
-      <h1>Je suis une page reference</h1>
-    </Layout>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Layout isPost={true}>
+        <Head>
+          <title>{`${r.artist_name[0].text} - ${r.track_name[0].text}`}</title>
+        </Head>
+        <section className={styles.refhead}>
+          <figure>
+            <img src={r.cover.url} alt={r.cover.alt}/>
+          </figure>
+          <div className={styles.refinfo}>
+            <h1>{r.artist_name[0].text}</h1>
+            <h2>{r.track_name[0].text}</h2>
+          </div>
+        </section>
+
+        <section className={styles.refbody}>
+          <SliceZone sliceZone={slices} />
+        </section>
+
+        <h2>
+          <NextLink href='/references'>
+            <a>Back to References</a>
+          </NextLink>
+        </h2>
+      </Layout>
+    </motion.div>
   )
 }
 
@@ -26,13 +58,17 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  const reference = await Client().getByUID('reference', params.uid)
+export async function getStaticProps({ params, preview = null, previewData = {} }) {
+  const { ref } = previewData
+
+  const req = await Client().getByUID('reference', params.uid, ref ? { ref } : null) || {}
+  const r = req.data
+  const slices = req.data.body
 
   return {
     props: {
-      // slices: reference.data.body,
-      reference
+      r,
+      slices
     }
   }
 }

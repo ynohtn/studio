@@ -135,8 +135,13 @@ table {
 }
 
 html {
-  font-family: 'Viga', sans-serif;
+  font-family: 'Manrope', sans-serif;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+figure {
+  text-align: center !important;
 }
 
 *,
@@ -146,6 +151,14 @@ html {
 }
 
 a {
-  color: blue;
+  color: #AB87FF;
   text-decoration: none;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
 }
