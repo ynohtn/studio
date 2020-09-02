@@ -12,13 +12,13 @@ const TextSection = ({ slice, index }) => {
   useEffect(() => {
     gsap.fromTo('.content-section',
       {
-        x: -200,
+        y: -5,
         opacity: 0
       },
       {
-        x: 0,
+        y: 0,
         opacity: 1,
-        duration: 0.3,
+        duration: 0.8,
         stagger: 1.5
       }
     )

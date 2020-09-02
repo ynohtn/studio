@@ -14,11 +14,15 @@ body {
 // STATIC BACKGROUND
 .static-bg {
   position: absolute;
-  top: 25%;
+  top: 55%;
   left: 0;
   z-index: -666;
   width: 100vw;
-  transform: scale(2);
+  
+  @include breakpoint($tab) {
+    top: 25%;
+    transform: scale(2);
+  }
 
   img {
     width: 100%;

@@ -28,15 +28,15 @@ export default function SamplePack({ smp, slices }) {
           <div className={styles.smpinfo}>
             <h1>{smp.pack_name[0].text}</h1>
           </div>
+          <h2 className={styles.backlink}>
+            <NextLink href='/samples'>
+              <a>Back to Samples</a>
+            </NextLink>
+          </h2>
         </section>
         <section className={styles.smpbody}>
           <SliceZone sliceZone={slices} />
         </section>
-        <h2>
-          <NextLink href='/samples'>
-            <a>Back to Samples</a>
-          </NextLink>
-        </h2>
       </Layout>
     </motion.div>
   )

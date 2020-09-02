@@ -60,7 +60,7 @@ export default function References({ res, items }) {
             )
           )}
         </motion.div>
-        <h2>
+        <h2 className={styles.backlink}>
           <NextLink href='/'>
             <a>Back to Home</a>
           </NextLink>

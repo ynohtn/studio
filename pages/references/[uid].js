@@ -29,17 +29,17 @@ export default function Reference({ r, slices }) {
             <h1>{r.artist_name[0].text}</h1>
             <h2>{r.track_name[0].text}</h2>
           </div>
+          <h2 className={styles.backlink}>
+            <NextLink href='/references'>
+              <a>Back to References</a>
+            </NextLink>
+          </h2>
         </section>
 
         <section className={styles.refbody}>
           <SliceZone sliceZone={slices} />
         </section>
 
-        <h2>
-          <NextLink href='/references'>
-            <a>Back to References</a>
-          </NextLink>
-        </h2>
       </Layout>
     </motion.div>
   )
