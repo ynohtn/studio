@@ -12,8 +12,8 @@ import { Layout, RefCard } from '../../components'
 
 
 export default function References({ res, items }) {
-  console.log(res)
-  console.log(items)
+  // console.log(res)
+  // console.log(items)
 
   useEffect(() => {
     gsap.fromTo('#griditem',

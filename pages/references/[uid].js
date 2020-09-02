@@ -8,8 +8,8 @@ import { default as NextLink } from 'next/link'
 
 
 export default function Reference({ r, slices }) {
-  console.log(r)
-  console.log(slices)
+  // console.log(r)
+  // console.log(slices)
   
   return (
     <motion.div

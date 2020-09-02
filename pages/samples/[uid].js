@@ -7,8 +7,8 @@ import { Layout, SliceZone } from '../../components'
 import { default as NextLink } from 'next/link'
 
 export default function SamplePack({ smp, slices }) {
-  console.log(smp)
-  console.log(slices)
+  // console.log(smp)
+  // console.log(slices)
   // console.log(slc)
 
   return (

@@ -12,8 +12,8 @@ import { Layout, SmpCard  } from '../../components'
 
 export default function Samples({ res, items }) {
 
-  console.log(res)
-  console.log(items)
+  // console.log(res)
+  // console.log(items)
 
   useEffect(() => {
     gsap.fromTo('#griditem',
