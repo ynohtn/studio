@@ -19,9 +19,9 @@ body {
   z-index: -666;
   width: 100vw;
   
-  @include breakpoint($tab) {
+  @include breakpoint($large) {
     top: 25%;
-    transform: scale(2);
+    // transform: scale(2);
   }
 
   img {
