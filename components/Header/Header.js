@@ -19,9 +19,9 @@ export default Header
 // import { SmartLink } from '../index'
 
 // const Header = ({ menu }) => (
-//   <header className="site-header">
-//     <NextLink href="/">
-//       <a><div className="logo">Example Site</div></a>
+//   <header className='site-header'>
+//     <NextLink href='/'>
+//       <a><div className='logo'>Example Site</div></a>
 //     </NextLink>
 //     <MenuLinks menu={menu} />
 //   </header>

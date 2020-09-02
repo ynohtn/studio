@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs'
 // import { quoteStyles } from 'styles'
 
 const Quote = ({ slice }) => (
-  <section className="content-section quote">
+  <section className='content-section quote'>
     <blockquote>
       {RichText.asText(slice.primary.quote_text)}
     </blockquote>

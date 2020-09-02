@@ -22,6 +22,7 @@ body {
 
   img {
     width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -51,10 +52,12 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 48px;
   line-height: 42px;
+  margin: 16px 0;
 }
 
 h2 {
   font-size: 24px;
+  line-height: 32px;
 }
 
 h3 {
@@ -64,6 +67,10 @@ h3 {
 // SLICEZONE
 .slice-ctn {
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  padding-bottom: 0;
+  margin: 0 0 16px 0;
 
   // RICHTEXT IMG BLOCK
   p.block-img {
@@ -77,14 +84,14 @@ h3 {
   }
 
   section.content-section {
-    margin: 66px 0;
+    margin: 32px 0;
 
     &:first-child {
       margin-top: 0;
     }
     
     p {
-      margin: 33px 0;
+      margin: 16px 0;
 
       &:first-child {
         margin-top: 0;

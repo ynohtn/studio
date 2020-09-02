@@ -20,21 +20,26 @@
 
 .refcardcontent {
   position: absolute;
-  bottom: -80px;
+  bottom: -200px;
   opacity: 0.3;
   width: 100%;
   text-align: center;
   background: $white;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 
   h3 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: $bold;
     padding: 8px;
     color: $black;
   }
 
   p {
+    color: $black;
+    font-weight: $smb;
+    font-size: 16px;
     padding: 8px;
     padding-top: 0;
-    color: $black;
   }
 }

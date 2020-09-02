@@ -22,9 +22,17 @@
 
 // POST STYLE
 .refhead {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  padding-bottom: 0;
+  margin: 0 0 16px 0;
 
   figure {
     width: 100%;
+    text-align: center;
     
     img {
       width: 100%;
@@ -47,9 +55,9 @@
 .refbody {
   overflow-x: hidden;
   overflow-y: hidden;
-  padding-right: 32px;
+  padding-right: 16px;
 
   @include breakpoint($tab) {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }

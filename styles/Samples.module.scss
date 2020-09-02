@@ -22,6 +22,13 @@
 
 // UID STYLE
 .smphead {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  padding-bottom: 0;
+  margin: 0 0 16px 0;
 
   figure {
     width: 100%;
@@ -44,5 +51,11 @@
 }
 
 .smpbody {
-  
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-right: 16px;
+
+  @include breakpoint($tab) {
+    overflow-y: auto;
+  }
 }

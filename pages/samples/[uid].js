@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import styles from '../../styles/Samples.module.scss'
 import Head from 'next/head'
 import { Layout, SliceZone } from '../../components'
-
+import { default as NextLink } from 'next/link'
 
 export default function SamplePack({ smp, slices }) {
   console.log(smp)
@@ -32,6 +32,11 @@ export default function SamplePack({ smp, slices }) {
         <section className={styles.smpbody}>
           <SliceZone sliceZone={slices} />
         </section>
+        <h2>
+          <NextLink href='/samples'>
+            <a>Back to Samples</a>
+          </NextLink>
+        </h2>
       </Layout>
     </motion.div>
   )

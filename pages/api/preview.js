@@ -1,4 +1,4 @@
-import Prismic from "prismic-javascript";
+import Prismic from 'prismic-javascript';
 import { linkResolver, apiEndpoint, accessToken } from '../../lib/prismic-configuration'
 
 // Client method to query from the Prismic repo
@@ -18,10 +18,10 @@ const Preview = async (req, res) => {
   const { token: ref, documentId } = req.query;
   const redirectUrl = await Client(req)
     .getPreviewResolver(ref, documentId)
-    .resolve(linkResolver, "/");
+    .resolve(linkResolver, '/');
 
   if (!redirectUrl) {
-    return res.status(401).json({ message: "Invalid token" });
+    return res.status(401).json({ message: 'Invalid token' });
   }
 
   res.setPreviewData({ ref });

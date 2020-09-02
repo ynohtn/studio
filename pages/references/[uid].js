@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import styles from '../../styles/References.module.scss'
 import Head from 'next/head'
 import { Layout, SliceZone} from '../../components'
+import { default as NextLink } from 'next/link'
 
 
 export default function Reference({ r, slices }) {
@@ -18,7 +19,7 @@ export default function Reference({ r, slices }) {
     >
       <Layout isPost={true}>
         <Head>
-          <title>{`${r.artist_name[0].text}`}</title>
+          <title>{`${r.artist_name[0].text} - ${r.track_name[0].text}`}</title>
         </Head>
         <section className={styles.refhead}>
           <figure>
@@ -33,6 +34,12 @@ export default function Reference({ r, slices }) {
         <section className={styles.refbody}>
           <SliceZone sliceZone={slices} />
         </section>
+
+        <h2>
+          <NextLink href='/references'>
+            <a>Back to References</a>
+          </NextLink>
+        </h2>
       </Layout>
     </motion.div>
   )

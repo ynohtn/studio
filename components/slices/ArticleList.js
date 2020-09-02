@@ -12,12 +12,12 @@
 
   
 //   return(
-//     <section className="">
+//     <section className=''>
 //       <RichText
 //         render={slice.primary.title_of_section}
 //         linkResolver={linkResolver}
 //       />
-//       <div className="gallery">
+//       <div className='gallery'>
 //         {slice.items.map((item, index) => (
 //           <ListItem item={item} key={index} />
 //         ))}
@@ -33,7 +33,7 @@
 //   // console.log(item.articles_to_link)
   
 //   return (
-//     <div className="gallery-item">
+//     <div className='gallery-item'>
 //       {
 //         item.articles_to_link.slug
 //       }

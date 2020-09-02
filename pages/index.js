@@ -16,8 +16,8 @@ export default function Home({ res }) {
     >
       <Layout>
         <Head>
-          <title>STUDIO</title>
-          <link rel="icon" href="/favicon.ico" />
+          <title>{res.data.site_name[0].text}</title>
+          <link rel='icon' href='/favicon.ico' />
         </Head>
 
         <div className={styles.homectn}>

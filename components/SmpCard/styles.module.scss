@@ -21,14 +21,17 @@
 
 .smpcardcontent {
   position: absolute;
-  bottom: -44px;
+  bottom: -200px;
   opacity: 0.3;
   width: 100%;
   text-align: center;
   background: $white;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 
   h3 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: $bold;
     padding: 8px;
     color: $black;
   }

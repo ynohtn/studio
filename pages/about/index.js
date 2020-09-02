@@ -27,8 +27,8 @@ export default function About({ res, slices }) {
           <SliceZone sliceZone={slices} />
         </section>
         <h2>
-          <NextLink href="/">
-            <a>Back to home</a>
+          <NextLink href='/'>
+            <a>Back to Home</a>
           </NextLink>
         </h2>
       </Layout>

@@ -6,12 +6,12 @@
 // import { imageGalleryStyles } from 'styles'
 
 // const ImageGallery = ({ slice }) => (
-//   <section className="image-gallery content-section">
+//   <section className='image-gallery content-section'>
 //     <RichText
 //       render={slice.primary.gallery_title}
 //       linkResolver={linkResolver}
 //     />
-//     <div className="gallery">
+//     <div className='gallery'>
 //       {slice.items.map((item, index) => (
 //         <GalleryItem item={item} key={index} />
 //       ))}
@@ -21,7 +21,7 @@
 // )
 
 // const GalleryItem = ({ item }) => (
-//   <div className="gallery-item">
+//   <div className='gallery-item'>
 //     <img
 //       src={item.image.url}
 //       alt={item.image.alt}
@@ -30,7 +30,7 @@
 //       render={item.image_description}
 //       linkResolver={linkResolver}
 //     />
-//     <p className="gallery-link">
+//     <p className='gallery-link'>
 //       <DocLink link={item.link}>
 //         {RichText.asText(item.link_label)}
 //       </DocLink>

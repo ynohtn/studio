@@ -46,7 +46,7 @@ export default function Samples({ res, items }) {
         <motion.div variants={stagger} className={styles.grid}>
           {items.map((item, i) => (
             <motion.div key={i} id={`griditem`} variants={fadeInUp}>
-              <NextLink href={`samples/${item.sample.uid}`}>
+              <NextLink href={'samples/[uid]'} as={`samples/${item.sample.uid}`}>
                 <a>
                   <SmpCard
                     name={item.sample.pack_name[0].text}
@@ -58,8 +58,8 @@ export default function Samples({ res, items }) {
           ))}
         </motion.div>
         <h2>
-          <NextLink href="/">
-            <a>Back to home</a>
+          <NextLink href='/'>
+            <a>Back to Home</a>
           </NextLink>
         </h2>
       </Layout>
@@ -74,8 +74,8 @@ export async function getStaticProps(context) {
 
   const samples = res.data.body
   const index = samples.findIndex((data) => data['slice_type'] === 'list_of_articles')
-  const items = await getSamplePackData(samples[index].items)
   // const items = samples[index].items
+  const items = await getSamplePackData(samples[index].items)
 
   return {
     props: {

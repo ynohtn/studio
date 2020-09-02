@@ -18,8 +18,8 @@ const TextSection = ({ slice, index }) => {
       {
         x: 0,
         opacity: 1,
-        duration: 1,
-        stagger: 0.1
+        duration: 0.3,
+        stagger: 1.5
       }
     )
   }, [])

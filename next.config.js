@@ -1,9 +1,16 @@
+module.exports = {
+  devIndicators: {
+    autoPrerender: false,
+  },
+}
+
 // const withTM = require('next-transpile-modules');
 // const withTM = require('next-transpile-modules')(['gsap']);
 
 // module.exports = withTM({
 //   transpileModules: ['gsap']
 // })
+
 
 // TODO : WEBPACK CONFIG GLOBAL SASS VARS
 // const path = require('path');
@@ -17,7 +24,7 @@
 //   },
 //   sassLoaderOptions: {
 //     includePaths: ['pages'],
-//     data: '@import "_vars.scss";'
+//     data: '@import '_vars.scss';'
 //   },
 //   webpack(config) {
 //     const app = './'

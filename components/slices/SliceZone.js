@@ -9,7 +9,7 @@ import {
 } from './'
 
 const SliceZone = ({ sliceZone }) => (
-  <div className="slice-ctn">
+  <div className='slice-ctn'>
     {sliceZone.map((slice, index) => {
       switch (slice.slice_type) {
         case ('text'):
