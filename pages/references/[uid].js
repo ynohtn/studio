@@ -27,14 +27,14 @@ export default function Reference({ r, slices, uid }) {
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="article" />
-          <meta property="og:url" content={`https://studio-infb8vyzm.vercel.app/references/${uid}`} />
+          <meta property="og:url" content={`https://studio-seven.vercel.app/references/${uid}`} />
           <meta property="og:title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
           <meta property="og:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
           <meta property="og:image" content={r.cover.url} />
 
           {/* Twitter */}
           <meta property="twitter:card" content={r.cover.url} />
-          <meta property="twitter:url" content={`https://studio-infb8vyzm.vercel.app/references/${uid}`} />
+          <meta property="twitter:url" content={`https://studio-seven.vercel.app/references/${uid}`} />
           <meta property="twitter:title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
           <meta property="twitter:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
           <meta property="twitter:image" content={r.cover.url} />
