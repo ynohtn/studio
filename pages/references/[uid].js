@@ -8,8 +8,8 @@ import { default as NextLink } from 'next/link'
 
 
 export default function Reference({ r, slices, uid }) {
-  console.log(r)
-  console.log(uid)
+  // console.log(r)
+  // console.log(uid)
   // console.log(slices)
   
   return (
@@ -30,14 +30,14 @@ export default function Reference({ r, slices, uid }) {
           <meta property="og:url" content={`https://studio-infb8vyzm.vercel.app/references/${uid}`} />
           <meta property="og:title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
           <meta property="og:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
-          <meta property="og:image" content="/meta-cover.jpg" />
+          <meta property="og:image" content={r.cover.url} />
 
           {/* Twitter */}
-          <meta property="twitter:card" content="/meta-cover.jpg" />
+          <meta property="twitter:card" content={r.cover.url} />
           <meta property="twitter:url" content={`https://studio-infb8vyzm.vercel.app/references/${uid}`} />
           <meta property="twitter:title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
           <meta property="twitter:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
-          <meta property="twitter:image" content="/meta-cover.jpg" />
+          <meta property="twitter:image" content={r.cover.url} />
         </Head>
         <section className={styles.refhead}>
           <figure>

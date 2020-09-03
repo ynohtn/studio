@@ -8,8 +8,8 @@ import { Layout, SliceZone } from '../../components'
 
 export default function About({ res, slices }) {
 
-  console.log(res)
-  console.log(slices)
+  // console.log(res)
+  // console.log(slices)
 
 
   return (
@@ -20,9 +20,26 @@ export default function About({ res, slices }) {
     >
       <Layout>
         <Head>
-          <title>ABOUT</title>
+          {/*Primary Meta Tags*/}
+          <title>About us</title>
+          <meta name="title" content="About us at Studio" />
+          <meta name="description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://studio-infb8vyzm.vercel.app/about" />
+          <meta property="og:title" content="About us at Studio" />
+          <meta property="og:description" content="Discover who we are, what we love, what we do. Finest audio engineers in Studio" />
+          <meta property="og:image" content="/meta-cover.jpg" />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="/meta-cover.jpg" />
+          <meta property="twitter:url" content="https://studio-infb8vyzm.vercel.app/about" />
+          <meta property="twitter:title" content="About us at Studio" />
+          <meta property="twitter:description" content="Discover who we are, what we love, what we do. Finest audio engineers in Studio" />
+          <meta property="twitter:image" content="/meta-cover.jpg" />
         </Head>
-        <h1>ABOUT PAGE</h1>
+        <h1 className={styles.abouttitle}>About us</h1>
         <section className={styles.aboutbody}>
           <SliceZone sliceZone={slices} />
         </section>

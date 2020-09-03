@@ -29,14 +29,14 @@ export default function SamplePack({ smp, slices, uid }) {
           <meta property="og:url" content={`https://studio-infb8vyzm.vercel.app/samples/${uid}`} />
           <meta property="og:title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
           <meta property="og:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
-          <meta property="og:image" content="/meta-cover.jpg" />
+          <meta property="og:image" content={smp.pack_cover.url} />
 
           {/* Twitter */}
-          <meta property="twitter:card" content="/meta-cover.jpg" />
+          <meta property="twitter:card" content={smp.pack_cover.url} />
           <meta property="twitter:url" content={`https://studio-infb8vyzm.vercel.app/samples/${uid}`} />
           <meta property="twitter:title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
           <meta property="twitter:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
-          <meta property="twitter:image" content="/meta-cover.jpg" />
+          <meta property="twitter:image" content={smp.pack_cover.url} />
         </Head>
         <section className={styles.smphead}>
           <figure>
