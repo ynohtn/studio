@@ -10,7 +10,7 @@
 //   console.log(`slice in ArticleList.js :`)
 //   console.log(slice)
 
-  
+
 //   return(
 //     <section className=''>
 //       <RichText
@@ -28,10 +28,10 @@
 // }
 
 // const ListItem = ({ item }) => {
-  
+
 //   // console.log(`articles to link in ArticleList.js :`)
 //   // console.log(item.articles_to_link)
-  
+
 //   return (
 //     <div className='gallery-item'>
 //       {

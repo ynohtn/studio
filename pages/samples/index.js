@@ -57,7 +57,7 @@ export default function Samples({ res, items }) {
           <meta property="twitter:title" content="Samples from Studio"/>
           <meta property="twitter:description" content="Discover sample packs made with love by passionnate musicians and audio engineers in Studio"/>
           <meta property="twitter:image" content="/meta-cover.jpg"/>
-          
+
         </Head>
 
         <h1>{res.data.samples_title[0].text}</h1>

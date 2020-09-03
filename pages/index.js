@@ -5,7 +5,7 @@ import { Layout, SliceZone } from '../components'
 import styles from '../styles/Home.module.scss'
 
 export default function Home({ res }) {
-  
+
   console.log(res)
 
   return (

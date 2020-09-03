@@ -18,7 +18,7 @@ export default function References({ res, items }) {
   useEffect(() => {
     gsap.fromTo('#griditem',
       {
-        y: 100,    
+        y: 100,
         opacity: 0
       },
       {
@@ -59,7 +59,7 @@ export default function References({ res, items }) {
         </Head>
 
         <h1>{res.data.single_title[0].text}</h1>
-        
+
         <motion.div className={styles.grid}>
 
           {items.map((item, i) => (
@@ -89,7 +89,7 @@ export default function References({ res, items }) {
 }
 
 export async function getStaticProps(context) {
-  
+
   const req = context.req
   const res = await Client(req).getSingle('references')
 

@@ -11,7 +11,7 @@ export default function Reference({ r, slices, uid }) {
   // console.log(r)
   // console.log(uid)
   // console.log(slices)
-  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

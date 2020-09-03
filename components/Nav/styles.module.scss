@@ -16,14 +16,14 @@
     position: relative;
     padding: 2px;
     text-align: center;
-    
+
     @include breakpoint($desktop) {
       min-width: 69px;
     }
 
     a {
       color: $white;
-      
+
       @include breakpoint($tab) {
         font-size: 24px;
       }

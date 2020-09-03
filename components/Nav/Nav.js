@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import styles from './styles.module.scss'
 
 const Nav = () => {
-  
+
   const router = useRouter()
 
   return (

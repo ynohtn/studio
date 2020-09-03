@@ -18,7 +18,7 @@ body {
   left: 0;
   z-index: -666;
   width: 100vw;
-  
+
   @include breakpoint($large) {
     top: 25%;
     // transform: scale(2);
@@ -93,7 +93,7 @@ h3 {
     &:first-child {
       margin-top: 0;
     }
-    
+
     p {
       margin: 16px 0;
 

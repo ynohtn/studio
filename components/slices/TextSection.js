@@ -8,7 +8,7 @@ const TextSection = ({ slice, index }) => {
     slice.slice_type ?
       `text-section-${slice.slice_type}-${index}` :
       'text-section'
-  
+
   useEffect(() => {
     gsap.fromTo('.content-section',
       {
