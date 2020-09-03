@@ -71,11 +71,27 @@
     content: '';
     position: absolute;
     left: 0px;
-    bottom: 9px;
+    bottom: 8.5px;
     width: 0;
     height: 0;
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
     border-right:7px solid $purple;
+  }
+
+  &:hover {
+    &:after {
+      animation: goBack 0.8s infinite;
+    }
+  }
+}
+
+@keyframes goBack{
+  0%, 100% {
+    left: 0px;
+  }
+
+  50% {
+    left: 5px;
   }
 }

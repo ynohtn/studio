@@ -1,12 +1,15 @@
-import Head from 'next/head'
 import { Client } from '../lib/prismic-configuration'
+import TextLoop from 'react-text-loop'
+// import {useEffect} from 'react'
+import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { Layout, SliceZone } from '../components'
 import styles from '../styles/Home.module.scss'
 
 export default function Home({ res }) {
 
-  console.log(res)
+  // console.log(res)
+
 
   return (
     <motion.div
@@ -22,7 +25,15 @@ export default function Home({ res }) {
 
         <div className={styles.homectn}>
           <h1 className={styles.hometitle}>{res.data.site_name[0].text}</h1>
-          {/* <SliceZone sliceZone={res.data.page_content} /> */}
+          <h2 className={styles.homesubtitle}>
+            <span className={styles.space}>We love</span>
+            <TextLoop>
+              <span>producing</span>
+              <span>mixing</span>
+              <span>mastering</span>
+              <span>your music</span>
+            </TextLoop>{' '}
+          </h2>
         </div>
 
       </Layout>

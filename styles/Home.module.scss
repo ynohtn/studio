@@ -2,14 +2,15 @@
 
 .homectn {
   height: 80vh;
-  display: inherit;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hometitle {
   font-size: 39px;
   line-height: 30px;
-  text-align: right;
+  text-align: left;
   padding-right: 10px;
 
 
@@ -21,4 +22,20 @@
   @include breakpoint($desktop) {
     padding-right: 130px;
   }
+}
+
+.homesubtitle {
+  line-height: 30px;
+  text-align: left;
+  padding-right: 20px;
+  
+  
+  @include breakpoint($tab) {
+    font-size: 39px;
+    margin: 60px 0 0 7px;
+  }
+}
+
+.space {
+  padding-right: 6px;
 }

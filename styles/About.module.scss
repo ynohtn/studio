@@ -25,4 +25,20 @@
     border-bottom: 7px solid transparent;
     border-right:7px solid $purple;
   }
+
+  &:hover {
+    &:after {
+      animation: goBack 0.8s infinite;
+    }
+  }
+}
+
+@keyframes goBack{
+  0%, 100% {
+    left: 17px;
+  }
+
+  50% {
+    left: 22px;
+  }
 }

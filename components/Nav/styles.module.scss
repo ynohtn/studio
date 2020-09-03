@@ -28,17 +28,24 @@
         font-size: 24px;
       }
 
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -7px;
+        left: 40%;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid $white;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
       &:hover {
         &:after {
-          content: '';
-          position: absolute;
-          bottom: -7px;
-          left: 40%;
-          width: 0;
-          height: 0;
-          border-left: 7px solid transparent;
-          border-right: 7px solid transparent;
-          border-bottom: 7px solid $white;
+          opacity: 1;
+          animation: blink 1.8s infinite;
         }
       }
     }
@@ -48,7 +55,7 @@
 
 .active {
   position: relative;
-  font-weight: $smb;
+  // font-weight: $smb;
 
   &:after {
     content: '';
@@ -60,5 +67,15 @@
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid $white;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
   }
 }
