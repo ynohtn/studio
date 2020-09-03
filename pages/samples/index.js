@@ -38,7 +38,26 @@ export default function Samples({ res, items }) {
     >
       <Layout>
         <Head>
-          <title>SAMPLES</title>
+
+          {/*Primary Meta Tags*/}
+          <title>Samples</title>
+          <meta name="title" content="Samples from Studio"/>
+          <meta name="description" content="Discover sample packs made with love by passionnate musicians and audio engineers in Studio"/>
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website"/>
+          <meta property="og:url" content="https://studio-infb8vyzm.vercel.app/samples"/>
+          <meta property="og:title" content="Samples from Studio"/>
+          <meta property="og:description" content="Discover sample packs made with love by passionnate musicians and audio engineers in Studio"/>
+          <meta property="og:image" content="/meta-cover.jpg"/>
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="/meta-cover.jpg"/>
+          <meta property="twitter:url" content="https://studio-infb8vyzm.vercel.app/samples"/>
+          <meta property="twitter:title" content="Samples from Studio"/>
+          <meta property="twitter:description" content="Discover sample packs made with love by passionnate musicians and audio engineers in Studio"/>
+          <meta property="twitter:image" content="/meta-cover.jpg"/>
+          
         </Head>
 
         <h1>{res.data.samples_title[0].text}</h1>

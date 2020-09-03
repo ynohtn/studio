@@ -38,7 +38,24 @@ export default function References({ res, items }) {
     >
       <Layout>
         <Head>
-          <title>REFERENCES</title>
+          {/*Primary Meta Tags*/}
+          <title>References</title>
+          <meta name="title" content="References from Studio" />
+          <meta name="description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://studio-infb8vyzm.vercel.app/references" />
+          <meta property="og:title" content="References from Studio" />
+          <meta property="og:description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+          <meta property="og:image" content="/meta-cover.jpg" />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="/meta-cover.jpg" />
+          <meta property="twitter:url" content="https://studio-infb8vyzm.vercel.app/references" />
+          <meta property="twitter:title" content="References from Studio" />
+          <meta property="twitter:description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+          <meta property="twitter:image" content="/meta-cover.jpg" />
         </Head>
 
         <h1>{res.data.single_title[0].text}</h1>

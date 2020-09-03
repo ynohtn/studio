@@ -6,7 +6,7 @@ import Head from 'next/head'
 import { Layout, SliceZone } from '../../components'
 import { default as NextLink } from 'next/link'
 
-export default function SamplePack({ smp, slices }) {
+export default function SamplePack({ smp, slices, uid }) {
   // console.log(smp)
   // console.log(slices)
   // console.log(slc)
@@ -19,7 +19,24 @@ export default function SamplePack({ smp, slices }) {
     >
       <Layout isPost={true}>
         <Head>
-          <title>{`${smp.pack_name[0].text} pack`}</title>
+          {/*Primary Meta Tags*/}
+          <title>{`${smp.pack_name[0].text} sample pack`}</title>
+          <meta name="title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
+          <meta name="description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={`https://studio-infb8vyzm.vercel.app/samples/${uid}`} />
+          <meta property="og:title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
+          <meta property="og:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
+          <meta property="og:image" content="/meta-cover.jpg" />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="/meta-cover.jpg" />
+          <meta property="twitter:url" content={`https://studio-infb8vyzm.vercel.app/samples/${uid}`} />
+          <meta property="twitter:title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
+          <meta property="twitter:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
+          <meta property="twitter:image" content="/meta-cover.jpg" />
         </Head>
         <section className={styles.smphead}>
           <figure>
@@ -63,11 +80,13 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
   const slices = req.data.body
   // Sample pack
   const smp = req.data
+  const uid = params.uid
 
   return {
     props: {
       smp,
-      slices
+      slices,
+      uid
     }
   }
 }
