@@ -43,7 +43,7 @@ export default function About({ res, slices }) {
         <section className={styles.aboutbody}>
           <SliceZone sliceZone={slices} />
         </section>
-        <h2>
+        <h2 className={styles.backlink}>
           <NextLink href='/'>
             <a>Back to Home</a>
           </NextLink>

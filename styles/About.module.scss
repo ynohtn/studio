@@ -8,3 +8,21 @@
 .abouttitle {
   padding-left: 16px;
 }
+
+.backlink {
+  position: relative;
+  margin-top: 32px;
+  padding-left: 32px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 17px;
+    bottom: 9px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent; 
+    border-right:7px solid $purple; 
+  }
+}
