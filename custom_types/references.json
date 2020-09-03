@@ -1,0 +1,48 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Nom de la page",
+        "placeholder": "nom de la page"
+      }
+    },
+    "single_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Titre",
+        "placeholder": "Titre de la page"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {},
+        "choices": {
+          "list_of_articles": {
+            "type": "Slice",
+            "fieldset": "List of Articles",
+            "description": "Section title and article list",
+            "icon": "photo_filter",
+            "non-repeat": {},
+            "repeat": {
+              "reference": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "reference"
+                  ],
+                  "label": "Reference",
+                  "placeholder": "select ref"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

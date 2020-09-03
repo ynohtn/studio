@@ -1,0 +1,12 @@
+{
+  "Main": {
+    "site_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Site name",
+        "placeholder": "Nom du site"
+      }
+    }
+  }
+}
