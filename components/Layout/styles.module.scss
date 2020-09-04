@@ -1,5 +1,6 @@
 @import '../../styles/settings/vars';
 
+// LAYOUTFOR /page
 .layout_page {
   display: grid;
   grid-template-columns: 1fr;
@@ -13,6 +14,7 @@
   width: 100%;
 }
 
+// LAYOUT FOR /page/[uid]
 .layout_post {
   display: grid;
   grid-template-columns: 1fr;

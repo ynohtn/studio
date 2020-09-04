@@ -10,7 +10,6 @@ export default function Home({ res }) {
 
   // console.log(res)
 
-
   return (
     <motion.div
       initial={{ opacity: 0 }}

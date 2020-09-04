@@ -11,7 +11,6 @@ export default function About({ res, slices }) {
   // console.log(res)
   // console.log(slices)
 
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -39,10 +38,13 @@ export default function About({ res, slices }) {
           <meta property="twitter:description" content="Discover who we are, what we love, what we do. Finest audio engineers in Studio" />
           <meta property="twitter:image" content="/meta-cover.jpg" />
         </Head>
+
         <h1 className={styles.abouttitle}>About us</h1>
+
         <section className={styles.aboutbody}>
           <SliceZone sliceZone={slices} />
         </section>
+        
         <h2 className={styles.backlink}>
           <NextLink href='/'>
             <a>Back to Home</a>

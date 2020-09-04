@@ -9,10 +9,13 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <link href='https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap' rel='stylesheet'></link>
       </Head>
-      <Header/>
+      
+      <Header />
+      
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} />
       </AnimatePresence>
+
       <figure className='static-bg'>
         <img src='/wavesbg.svg' alt='background' />
       </figure>

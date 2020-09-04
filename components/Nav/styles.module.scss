@@ -4,7 +4,6 @@
   display: flex;
   padding: 24px 16px;
   width: 100%;
-  // max-width: 500px;
 }
 
 .navList {
@@ -53,9 +52,9 @@
   }
 }
 
+// ADD CURSOR TO ACTIVE NAV
 .active {
   position: relative;
-  // font-weight: $smb;
 
   &:after {
     content: '';
@@ -70,6 +69,7 @@
   }
 }
 
+// BLINKING CURSOR KEYFRAMES
 @keyframes blink {
   0%, 100% {
     opacity: 0;

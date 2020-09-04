@@ -1,6 +1,7 @@
 import Prismic from 'prismic-javascript';
 import { linkResolver, apiEndpoint, accessToken } from '../../lib/prismic-configuration'
 
+// TODO : HANDLE PREVIEW
 // Client method to query from the Prismic repo
 const Client = (req = null) =>
   Prismic.client(apiEndpoint, createClientOptions(req, accessToken));

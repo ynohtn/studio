@@ -38,6 +38,7 @@ export default function SamplePack({ smp, slices, uid }) {
           <meta property="twitter:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
           <meta property="twitter:image" content={smp.pack_cover.url} />
         </Head>
+
         <section className={styles.smphead}>
           <figure>
             <img src={smp.pack_cover.url} alt={smp.pack_cover.alt} />
@@ -51,6 +52,7 @@ export default function SamplePack({ smp, slices, uid }) {
             </NextLink>
           </h2>
         </section>
+        
         <section className={styles.smpbody}>
           <SliceZone sliceZone={slices} />
         </section>

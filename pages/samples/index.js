@@ -76,6 +76,7 @@ export default function Samples({ res, items }) {
             </motion.div>
           ))}
         </motion.div>
+        
         <h2 className={styles.backlink}>
           <NextLink href='/'>
             <a>Back to Home</a>

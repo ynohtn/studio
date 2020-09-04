@@ -3,7 +3,7 @@ import { Link } from 'prismic-reactjs'
 
 // import { linkResolver, hrefResolver } from '../../lib/prismic-configuration'
 
-// TODO : LINK RESOLVING SHIT -- COMPONENT UNUSED FOR NOW
+// TODO : LINK RESOLVING -- COMPONENT UNUSED FOR NOW
 // Main SmartLink component function for generating links to other pages on this site
 const SmartLink = ({ children, link, linkClass }) => {
   if (link) {

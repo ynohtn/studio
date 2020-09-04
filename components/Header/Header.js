@@ -13,7 +13,7 @@ const Header = () => {
 
 export default Header
 
-// TODO : LINK RESOLVING SHIT + MENU AUTO FILLED
+// TODO : LINK RESOLVING + MENU AUTO FILLED
 // import { default as NextLink } from 'next/link'
 // import { RichText } from 'prismic-reactjs'
 // import { SmartLink } from '../index'

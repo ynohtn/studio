@@ -61,7 +61,6 @@ export default function References({ res, items }) {
         <h1>{res.data.single_title[0].text}</h1>
 
         <motion.div className={styles.grid}>
-
           {items.map((item, i) => (
             <motion.div key={i} id={`griditem`} variants={fadeInUp}>
               <NextLink href={'references/[uid]'} as={`references/${item.reference.uid}`}>
@@ -77,13 +76,13 @@ export default function References({ res, items }) {
             )
           )}
         </motion.div>
+
         <h2 className={styles.backlink}>
           <NextLink href='/'>
             <a>Back to Home</a>
           </NextLink>
         </h2>
       </Layout>
-
     </motion.div>
   )
 }

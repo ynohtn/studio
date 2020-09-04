@@ -39,6 +39,7 @@ export default function Reference({ r, slices, uid }) {
           <meta property="twitter:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
           <meta property="twitter:image" content={r.cover.url} />
         </Head>
+        
         <section className={styles.refhead}>
           <figure>
             <img src={r.cover.url} alt={r.cover.alt}/>

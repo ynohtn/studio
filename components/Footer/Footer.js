@@ -3,7 +3,8 @@ import Link from 'next/link'
 
 import styles from './styles.module.scss'
 
- const Footer = () => {
+// TODO : replace create-next-app footer by custom one 
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <a
