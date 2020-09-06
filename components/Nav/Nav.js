@@ -16,13 +16,13 @@ const Nav = () => {
           </NextLink>
         </li>
 
-        <li className={router.pathname == '/references' ? styles.active : ''}>
+        <li className={router.pathname.includes('/references') ? styles.active : ''}>
           <NextLink href='/references'>
             <a>References</a>
           </NextLink>
         </li>
 
-        <li className={router.pathname == '/samples' ? styles.active : ''}>
+        <li className={router.pathname.includes('/samples') ? styles.active : ''}>
           <NextLink href='/samples'>
             <a>Samples</a>
           </NextLink>
