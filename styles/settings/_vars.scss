@@ -17,13 +17,22 @@ $bold: 700;
 
 // RESPONSIVE
 // BREAKPOINTS
+$s: 375;
+$hiphx: 812;
 $tab: 768;
 $desktop: 1024;
+$big: 1366;
 $large: 1440;
 
 // MEDIA QUERY MIXIN
 @mixin breakpoint($point) {
   @media (min-width: $point + 'px') {
+    @content;
+  }
+}
+
+@mixin wh($w, $h) {
+  @media (min-width: $w + 'px') and (min-height: $h + 'px') {
     @content;
   }
 }

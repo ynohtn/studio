@@ -1,8 +1,6 @@
 import { Client } from '../../lib/prismic-configuration'
 import { useEffect } from 'react'
-import { gsap} from 'gsap'
-import { motion } from 'framer-motion'
-import { fadeInUp } from '../../lib/animation'
+import { gsap } from 'gsap'
 import { getReferenceData } from '../../lib/api'
 import styles from '../../styles/References.module.scss'
 
@@ -31,59 +29,50 @@ export default function References({ res, items }) {
   }, [])
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <Layout>
-        <Head>
-          {/*Primary Meta Tags*/}
-          <title>References</title>
-          <meta name="title" content="References from Studio" />
-          <meta name="description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+    <Layout isGrid={true}>
+      <Head>
+        {/*Primary Meta Tags*/}
+        <title>References</title>
+        <meta name="title" content="References from Studio" />
+        <meta name="description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
 
-          {/* Open Graph / Facebook */}
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://studio-seven.vercel.app/references" />
-          <meta property="og:title" content="References from Studio" />
-          <meta property="og:description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
-          <meta property="og:image" content="/meta-cover.jpg" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://studio-seven.vercel.app/references" />
+        <meta property="og:title" content="References from Studio" />
+        <meta property="og:description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+        <meta property="og:image" content="/meta-cover.jpg" />
 
-          {/* Twitter */}
-          <meta property="twitter:card" content="/meta-cover.jpg" />
-          <meta property="twitter:url" content="https://studio-seven.vercel.app/references" />
-          <meta property="twitter:title" content="References from Studio" />
-          <meta property="twitter:description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
-          <meta property="twitter:image" content="/meta-cover.jpg" />
-        </Head>
+        {/* Twitter */}
+        <meta property="twitter:card" content="/meta-cover.jpg" />
+        <meta property="twitter:url" content="https://studio-seven.vercel.app/references" />
+        <meta property="twitter:title" content="References from Studio" />
+        <meta property="twitter:description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
+        <meta property="twitter:image" content="/meta-cover.jpg" />
+      </Head>
 
-        <h1>{res.data.single_title[0].text}</h1>
+      <h1>{res.data.single_title[0].text}</h1>
 
-        <motion.div className={styles.grid}>
-          {items.map((item, i) => (
-            <motion.div key={i} id={`griditem`} variants={fadeInUp}>
-              <NextLink href={'references/[uid]'} as={`references/${item.reference.uid}`}>
-                <a>
-                  <RefCard
-                    name={item.reference.artist_name[0].text}
-                    track={item.reference.track_name[0].text}
-                    cover={item.reference.cover}
-                  />
-                </a>
-              </NextLink>
-            </motion.div>
-            )
-          )}
-        </motion.div>
+      <div className={styles.grid}>
+        {items.map((item, i) => (
+            <NextLink key={i} href={'references/[uid]'} as={`references/${item.reference.uid}`}>
+              <a id={`griditem`}>
+                <RefCard
+                  name={item.reference.artist_name[0].text}
+                  track={item.reference.track_name[0].text}
+                  cover={item.reference.cover}
+                />
+              </a>
+            </NextLink>
+          ))}
+      </div>
 
-        <h2 className={styles.backlink}>
-          <NextLink href='/'>
-            <a>Back to Home</a>
-          </NextLink>
-        </h2>
-      </Layout>
-    </motion.div>
+      <h2 className={styles.backlink}>
+        <NextLink href='/'>
+          <a>Back to Home</a>
+        </NextLink>
+      </h2>
+    </Layout>
   )
 }
 

@@ -1,17 +1,42 @@
 @import '../../styles/settings/vars';
 
-// LAYOUTFOR /page
+// LAYOUT FOR /page
 .layout_page {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
 
+  width: 100%;
+  height: calc(100vh - 60px);
   max-width: 1440px;
-  max-height: 90vh;
   margin: 0 auto;
   padding: 0 16px;
+  overflow-y: auto;
+  
+  @include breakpoint($tab) {
+    height: calc(100vh - 90px);
+  }
+}
+
+// LAYOUT FOR GRID /page
+.layout_gridpage {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
+  height: calc(100vh - 60px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+  padding-right: 0;
+  overflow-y: auto;
+  
+  @include breakpoint($tab) {
+    height: calc(100vh - 90px);
+  }
+
+  @include breakpoint($desktop) {
+    padding: 0 16px;
+  }
 }
 
 // LAYOUT FOR /page/[uid]
