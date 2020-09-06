@@ -11,19 +11,23 @@
 
 .backlink {
   position: relative;
-  margin-top: 32px;
-  padding-left: 32px;
+  padding-left: 36px;
+  margin: 18px 0;
+
+  @include breakpoint($tab) {
+    margin: 36px 0;
+  }
 
   &:after {
     content: '';
     position: absolute;
-    left: 17px;
+    left: 16px;
     bottom: 9px;
     width: 0;
     height: 0;
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
-    border-right:7px solid $purple;
+    border-right: 12.124px solid $purple;
   }
 
   &:hover {
@@ -36,10 +40,10 @@
 // ARROW ANIM BACKLINK
 @keyframes goBack{
   0%, 100% {
-    left: 17px;
+    left: 16px;
   }
 
   50% {
-    left: 22px;
+    left: 21px;
   }
 }

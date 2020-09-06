@@ -30,13 +30,14 @@
       &:after {
         content: '';
         position: absolute;
-        bottom: -7px;
+        bottom: -10px;
         left: 40%;
         width: 0;
         height: 0;
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
-        border-bottom: 7px solid $white;
+        // MAKE TRIANGLE EQUILATERAL = (border-left-width + border-right-width) * 0.866% 
+        border-bottom: 12.124px solid $white;
         opacity: 0;
         transition: all 0.3s ease;
       }
@@ -59,13 +60,14 @@
   &:after {
     content: '';
     position: absolute;
-    bottom: -7px;
+    bottom: -10px;
     left: 40%;
     width: 0;
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid $white;
+    border-bottom: 12.124px solid $white;
+    // border-bottom: 7px solid $white;
   }
 }
 

@@ -3,14 +3,18 @@
 // INDEX STYLE
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  grid-template-rows: repeat(6, 1fr);
   gap: 16px;
 
-  overflow-y: scroll;
-  height: 75vh;
+  overflow-y: auto;
+  height: 100%;
   margin-top: 32px;
-  padding-right: 16px;
+  padding-right: 8px;
+
+  @include breakpoint($desktop) {
+    overflow-y: scroll;
+  }
 
   > div {
 
@@ -62,8 +66,12 @@
 
 .backlink {
   position: relative;
-  margin-top: 32px;
-  padding-left: 16px;
+  padding-left: 20px;
+  margin: 18px 0;
+
+  @include breakpoint($tab) {
+    margin: 36px 0;
+  }
 
   &:after {
     content: '';
@@ -74,7 +82,7 @@
     height: 0;
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
-    border-right:7px solid $purple;
+    border-right: 12.124px solid $purple;
   }
 
   &:hover {
