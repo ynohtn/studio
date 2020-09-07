@@ -73,21 +73,25 @@
     margin: 36px 0;
   }
 
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0px;
-    bottom: 8.5px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 12.124px solid $purple;
-  }
+  a {
+    position: relative;
+    &:hover {
 
-  &:hover {
+      &:after {
+        animation: goBack 0.8s infinite;
+      }
+    }
+
     &:after {
-      animation: goBack 0.8s infinite;
+      content: '';
+      position: absolute;
+      left: -20px;
+      bottom: 8px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 12.124px solid $purple;
     }
   }
 }
@@ -95,10 +99,10 @@
 // ARROW ANIM BACKLINK
 @keyframes goBack{
   0%, 100% {
-    left: 0px;
+    left: -20px;
   }
 
   50% {
-    left: 5px;
+    left: -15px;
   }
 }
