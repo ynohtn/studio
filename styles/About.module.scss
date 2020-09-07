@@ -10,29 +10,32 @@
 }
 
 .backlink {
-  position: relative;
   padding-left: 36px;
   margin: 18px 0;
-
+  
   @include breakpoint($tab) {
     margin: 36px 0;
   }
+  
+  a {
+    position: relative;
+    &:hover {
 
-  &:after {
-    content: '';
-    position: absolute;
-    left: 16px;
-    bottom: 8px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 12.124px solid $purple;
-  }
+      &:after {
+        animation: goBack 0.8s infinite;
+      }
+    }
 
-  &:hover {
     &:after {
-      animation: goBack 0.8s infinite;
+      content: '';
+      position: absolute;
+      left: -20px;
+      bottom: 8px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 12.124px solid $purple;
     }
   }
 }
@@ -40,10 +43,10 @@
 // ARROW ANIM BACKLINK
 @keyframes goBack{
   0%, 100% {
-    left: 16px;
+    left: -20px;
   }
 
   50% {
-    left: 21px;
+    left: -15px;
   }
 }
