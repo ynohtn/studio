@@ -43,12 +43,7 @@ export default function Home({ res }) {
           <h1 className={styles.hometitle}>{res.data.site_name[0].text}</h1>
           <h2 className={styles.homesubtitle}>
             <span className={styles.space}>We love</span>
-            <TextLoop>
-              <span>producing</span>
-              <span>mixing</span>
-              <span>mastering</span>
-              <span>your music</span>
-            </TextLoop>{' '}
+            <TextLoop children={['producing', 'mixing', 'mastering', 'your music']} interval={2000} />
           </h2>
         </div>
 
