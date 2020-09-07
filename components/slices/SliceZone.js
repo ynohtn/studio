@@ -18,7 +18,7 @@ const SliceZone = ({ sliceZone }) => (
           return <Quote slice={slice} key={`slice-${index}`} />
         case ('image'):
           return <FullWidthImage slice={slice} key={`slice-${index}`} />
-        // case ('image_gallery'):
+        // case ('team'):
         //   return <ImageGallery slice={slice} key={`slice-${index}`} />
         // case ('image_highlight'):
         //   return <ImageHighlight slice={slice} key={`slice-${index}`} />
