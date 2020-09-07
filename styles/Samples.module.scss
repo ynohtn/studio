@@ -15,13 +15,6 @@
   @include breakpoint($desktop) {
     overflow-y: scroll;
   }
-
-  > div {
-
-    &:last-child {
-      margin-bottom: 72px;
-    }
-  }
 }
 
 // UID STYLE
@@ -57,7 +50,7 @@
 .smpbody {
   overflow-x: hidden;
   overflow-y: hidden;
-  padding-right: 16px;
+  // padding-right: 16px;
 
   @include breakpoint($tab) {
     overflow-y: auto;
@@ -66,7 +59,7 @@
 
 .backlink {
   position: relative;
-  padding-left: 20px;
+  padding-left: 19px;
   margin: 18px 0;
 
   @include breakpoint($tab) {
@@ -86,12 +79,16 @@
       content: '';
       position: absolute;
       left: -20px;
-      bottom: 8px;
+      bottom: 5px;
       width: 0;
       height: 0;
       border-top: 7px solid transparent;
       border-bottom: 7px solid transparent;
       border-right: 12.124px solid $purple;
+
+      @include breakpoint($desktop) {
+        bottom: 9px;
+      }
     }
   }
 }
