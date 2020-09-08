@@ -1,11 +1,7 @@
 import React from 'react'
 import {
   TextSection,
-  Quote,
-  FullWidthImage,
-  ImageGallery,
-  ImageHighlight,
-  // ArticleList
+  Team
 } from './'
 
 const SliceZone = ({ sliceZone }) => (
@@ -14,16 +10,8 @@ const SliceZone = ({ sliceZone }) => (
       switch (slice.slice_type) {
         case ('text'):
           return <TextSection slice={slice} key={index} index={index} />
-        case ('quote'):
-          return <Quote slice={slice} key={`slice-${index}`} />
-        case ('image'):
-          return <FullWidthImage slice={slice} key={`slice-${index}`} />
-        // case ('team'):
-        //   return <ImageGallery slice={slice} key={`slice-${index}`} />
-        // case ('image_highlight'):
-        //   return <ImageHighlight slice={slice} key={`slice-${index}`} />
-        // case ('list_of_articles'):
-          // return <ArticleList slice={slice} key={`slice-${index}`} />
+        case ('team'):
+          return <Team slice={slice} key={`slice-${index}`} />
         default:
           return null
       }

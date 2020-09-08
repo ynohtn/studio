@@ -1,6 +1,5 @@
 import { Client } from '../../lib/prismic-configuration'
 import { default as NextLink } from 'next/link'
-import { motion } from 'framer-motion'
 import styles from '../../styles/About.module.scss'
 import Head from 'next/head'
 import { Layout, SliceZone } from '../../components'
@@ -8,8 +7,8 @@ import { Layout, SliceZone } from '../../components'
 
 export default function About({ res, slices }) {
 
-  // console.log(res)
-  // console.log(slices)
+  console.log(res)
+  console.log(slices)
 
   return (
     <Layout>
