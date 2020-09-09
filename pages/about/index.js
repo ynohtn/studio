@@ -14,7 +14,7 @@ export default function About({ res, slices }) {
     <Layout>
       <Head>
         {/*Primary Meta Tags*/}
-        <title>About us</title>
+        <title>About</title>
         <meta name="title" content="About us at Studio" />
         <meta name="description" content="Discover who we work with and what we love to do to your sound, finest audio engineering in Studio" />
 
@@ -33,7 +33,7 @@ export default function About({ res, slices }) {
         <meta property="twitter:image" content="/meta-cover.jpg" />
       </Head>
 
-      <h1 className={styles.abouttitle}>About us</h1>
+      <h1 className={styles.abouttitle}>About</h1>
 
       <section className={styles.aboutbody}>
         <SliceZone sliceZone={slices} />
