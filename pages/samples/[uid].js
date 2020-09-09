@@ -2,10 +2,10 @@ import { Client } from '../../lib/prismic-configuration'
 import { getSamplePacks } from '../../lib/api'
 import styles from '../../styles/Samples.module.scss'
 import Head from 'next/head'
-import { Layout, SliceZone } from '../../components'
+import { Layout, SliceZone, Header } from '../../components'
 import { default as NextLink } from 'next/link'
 
-export default function SamplePack({ smp, slices, uid }) {
+export default function SamplePack({ smp, menu, slices, uid }) {
   // console.log(smp)
   // console.log(slices)
   // console.log(slc)
@@ -32,6 +32,8 @@ export default function SamplePack({ smp, slices, uid }) {
         <meta property="twitter:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
         <meta property="twitter:image" content={smp.pack_cover.url} />
       </Head>
+
+      <Header menu={menu} />
 
       <section className="scrollctn">
         <section className={styles.smphead}>
@@ -71,17 +73,21 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview = null, previewData = {} }) {
   const { ref } = previewData
-  const req = await Client().getByUID('sample_pack', params.uid, ref ? { ref } : null) || {}
+
+  const client = Client()
+  const doc = await Client().getByUID('sample_pack', params.uid, ref ? { ref } : null) || {}
+  const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
 
   // All slices
-  const slices = req.data.body
+  const slices = doc.data.body
   // Sample pack
-  const smp = req.data
+  const smp = doc.data
   const uid = params.uid
 
   return {
     props: {
       smp,
+      menu,
       slices,
       uid
     }

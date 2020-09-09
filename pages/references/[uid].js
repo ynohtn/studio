@@ -3,11 +3,11 @@ import { getReferences } from '../../lib/api'
 import { motion } from 'framer-motion'
 import styles from '../../styles/References.module.scss'
 import Head from 'next/head'
-import { Layout, SliceZone} from '../../components'
+import { Layout, SliceZone, Header} from '../../components'
 import { default as NextLink } from 'next/link'
 
 
-export default function Reference({ r, slices, uid }) {
+export default function Reference({ r, menu, slices, uid }) {
   // console.log(r)
   // console.log(uid)
   // console.log(slices)
@@ -35,6 +35,8 @@ export default function Reference({ r, slices, uid }) {
         <meta property="twitter:image" content={r.cover.url} />
       </Head>
       
+      <Header menu={menu} />
+
       <section className="scrollctn">
         <section className={styles.refhead}>
           <figure>
@@ -75,14 +77,19 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview = null, previewData = {} }) {
   const { ref } = previewData
 
-  const req = await Client().getByUID('reference', params.uid, ref ? { ref } : null) || {}
-  const r = req.data
-  const slices = req.data.body
+  const client = Client()
+
+  const doc = await client.getByUID('reference', params.uid, ref ? { ref } : null) || {}
+  const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
+
+  const r = doc.data
+  const slices = doc.data.body
   const uid = params.uid
 
   return {
     props: {
       r,
+      menu,
       slices,
       uid
     }

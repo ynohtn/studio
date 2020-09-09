@@ -1,18 +1,19 @@
 import { Client } from '../lib/prismic-configuration'
 import TextLoop from 'react-text-loop'
 import Head from 'next/head'
-import { Layout, SliceZone } from '../components'
+import { Layout, Header } from '../components'
 import styles from '../styles/Home.module.scss'
 
-export default function Home({ res }) {
+export default function Home({ doc, menu }) {
 
-  // console.log(res)
+  // console.log(doc)
+  // console.log(menu)
 
   return (
     <Layout>
       <Head>
         {/*Primary Meta Tags*/}
-        <title>{res.data.site_name[0].text}</title>
+        <title>{doc.data.site_name[0].text}</title>
         <meta name="title" content="Studio" />
         <meta name="description" content="Discover who we work with and what we love to do to your sound, finest audio engineering at Studio in Paris" />
 
@@ -32,8 +33,10 @@ export default function Home({ res }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
+      <Header menu={menu} />
+
       <div className={styles.homectn}>
-        <h1 className={styles.hometitle}>{res.data.site_name[0].text}</h1>
+        <h1 className={styles.hometitle}>{doc.data.site_name[0].text}</h1>
         <h2 className={styles.homesubtitle}>
           <span className={styles.space}>We love</span>
           <TextLoop children={['producing', 'mixing', 'mastering', 'your music']} interval={2000} />
@@ -43,13 +46,21 @@ export default function Home({ res }) {
   )
 }
 
-export async function getStaticProps(context) {
-  const req = context.req
-  const res = await Client(req).getSingle('homepage')
+export async function getStaticProps({ preview = null, previewData = {} }) {
+
+  const { ref } = previewData
+
+  const client = Client()
+
+  const doc = await client.getSingle('homepage', ref ? { ref } : null) || {}
+  const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
+
 
   return {
     props: {
-      res
+      doc,
+      menu,
+      preview
     }
   }
 }

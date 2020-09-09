@@ -7,17 +7,20 @@
   justify-content: center;
 
   width: 100%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 60px);
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 16px;
   padding-right: 0;
+  padding-top: 60px;
   
   @include breakpoint($tab) {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 90px);
+    padding-top: 90px;
   }
 
   @include breakpoint($desktop) {
     padding: 0 16px;
+    padding-top: 90px;
   }
 }

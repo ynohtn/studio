@@ -2,12 +2,12 @@ import { Client } from '../../lib/prismic-configuration'
 import { default as NextLink } from 'next/link'
 import styles from '../../styles/About.module.scss'
 import Head from 'next/head'
-import { Layout, SliceZone } from '../../components'
+import { Layout, SliceZone, Header } from '../../components'
 
 
-export default function About({ res, slices }) {
+export default function About({ doc, slices, menu }) {
 
-  // console.log(res)
+  // console.log(doc)
   // console.log(slices)
 
   return (
@@ -33,6 +33,8 @@ export default function About({ res, slices }) {
         <meta property="twitter:image" content="/meta-cover.jpg" />
       </Head>
 
+      <Header menu={menu} />
+
       <h1 className={styles.abouttitle}>About</h1>
 
       <section className={styles.aboutbody}>
@@ -48,18 +50,22 @@ export default function About({ res, slices }) {
   )
 }
 
-export async function getStaticProps(context) {
-  const req = context.req
-  const res = await Client(req).getSingle('about')
+export async function getStaticProps({ preview = null, previewData = {} }) {
 
-  const slices = res.data.body
-  // const index = slices.findIndex((data) => data['slice_type'] === 'slider')
-  // slices[index].items = await getProjectsData(slices[index].items)
+  const { ref } = previewData
+
+  const client = Client()
+
+  const doc = await client.getSingle('about', ref ? { ref } : null) || {}
+  const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
+  const slices = doc.data.body
 
   return {
     props: {
+      doc,
+      menu,
       slices,
-      res
+      preview
     }
   }
 }

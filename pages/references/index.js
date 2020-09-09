@@ -6,11 +6,11 @@ import styles from '../../styles/References.module.scss'
 
 import Head from 'next/head'
 import { default as NextLink } from 'next/link'
-import { Layout, RefCard } from '../../components'
+import { Layout, RefCard, Header } from '../../components'
 
 
-export default function References({ res, items }) {
-  // console.log(res)
+export default function References({ doc, items, menu }) {
+  // console.log(doc)
   // console.log(items)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function References({ res, items }) {
   }, [])
 
   return (
-    <Layout isGrid={true}>
+    <Layout>
       <Head>
         {/*Primary Meta Tags*/}
         <title>References</title>
@@ -51,7 +51,9 @@ export default function References({ res, items }) {
         <meta property="twitter:image" content="/meta-cover.jpg" />
       </Head>
 
-      <h1>{res.data.single_title[0].text}</h1>
+      <Header menu={menu} />
+
+      <h1>{doc.data.single_title[0].text}</h1>
 
       <div className={styles.grid}>
         {items.map((item, i) => (
@@ -76,20 +78,25 @@ export default function References({ res, items }) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ preview = null, previewData = {} }) {
 
-  const req = context.req
-  const res = await Client(req).getSingle('references')
+  const { ref } = previewData
 
-  const references = res.data.body
+  const client = Client()
+
+  const doc = await client.getSingle('references', ref ? { ref } : null) || {}
+  const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
+
+  const references = doc.data.body
   const index = references.findIndex((data) => data['slice_type'] === 'list_of_articles')
-  // const items = references[index].items
   const items = await getReferenceData(references[index].items)
 
   return {
     props: {
-      res,
-      items
+      doc,
+      menu,
+      items,
+      preview
     }
   }
 }
