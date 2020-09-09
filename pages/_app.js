@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Header } from '../components'
+import { Header, Footer } from '../components'
 import {AnimatePresence} from 'framer-motion'
 import '../styles/_globals.scss'
 
@@ -15,6 +15,8 @@ const App = ({ Component, pageProps }) => {
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} />
       </AnimatePresence>
+
+      <Footer />
 
       <figure className='static-bg'>
         <img src='/wavesbg.svg' alt='background' />

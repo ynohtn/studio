@@ -7,8 +7,8 @@ import { Layout, SliceZone } from '../../components'
 
 export default function About({ res, slices }) {
 
-  console.log(res)
-  console.log(slices)
+  // console.log(res)
+  // console.log(slices)
 
   return (
     <Layout>

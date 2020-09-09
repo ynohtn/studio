@@ -13,7 +13,7 @@ export default function Reference({ r, slices, uid }) {
   // console.log(slices)
 
   return (
-    <Layout isPost={true}>
+    <Layout>
       <Head>
         {/*Primary Meta Tags*/}
         <title>{`${r.artist_name[0].text} - ${r.track_name[0].text}`}</title>
@@ -35,24 +35,26 @@ export default function Reference({ r, slices, uid }) {
         <meta property="twitter:image" content={r.cover.url} />
       </Head>
       
-      <section className={styles.refhead}>
-        <figure>
-          <img src={r.cover.url} alt={r.cover.alt}/>
-        </figure>
-        <div className={styles.refinfo}>
-          <h1>{r.artist_name[0].text}</h1>
-          <h2>{r.track_name[0].text}</h2>
-        </div>
-        <h2 className={styles.backlink}>
-          <NextLink href='/references'>
-            <a>Back to References</a>
-          </NextLink>
-        </h2>
+      <section className="scrollctn">
+        <section className={styles.refhead}>
+          <figure>
+            <img src={r.cover.url} alt={r.cover.alt}/>
+          </figure>
+          <div className={styles.refinfo}>
+            <h1>{r.artist_name[0].text}</h1>
+            <h2>{r.track_name[0].text}</h2>
+          </div>
+          <h2 className={styles.backlink}>
+            <NextLink href='/references'>
+              <a>Back to References</a>
+            </NextLink>
+          </h2>
+        </section>
+        <section className={styles.refbody}>
+          <SliceZone sliceZone={slices} />
+        </section>
       </section>
 
-      <section className={styles.refbody}>
-        <SliceZone sliceZone={slices} />
-      </section>
     </Layout>
   )
 }
