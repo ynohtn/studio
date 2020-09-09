@@ -1,5 +1,5 @@
 import { Client } from '../../lib/prismic-configuration'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { getReferenceData } from '../../lib/api'
 import styles from '../../styles/References.module.scss'
@@ -10,10 +10,21 @@ import { Layout, RefCard, Header } from '../../components'
 
 
 export default function References({ doc, items, menu }) {
+  // const itemsRef = useRef([]);
+  // const [data, setData] = useState([]);
   // console.log(doc)
   // console.log(items)
 
   useEffect(() => {
+
+    // itemsRef.current = new Array(data.length)
+
+    // setData(data)
+    // console.log(data)
+
+    // // itemsRef.current = itemsRef.current.slice(0, data.length)
+    // // console.log(itemsRef)
+
     gsap.fromTo('#griditem',
       {
         y: 100,
@@ -57,7 +68,9 @@ export default function References({ doc, items, menu }) {
 
       <div className={styles.grid}>
         {items.map((item, i) => (
-            <NextLink key={i} href={'references/[uid]'} as={`references/${item.reference.uid}`}>
+          <NextLink key={i} href={'references/[uid]'} as={`references/${item.reference.uid}`}
+            // ref={el => itemsRef.current[i] = el}
+          >
               <a id={`griditem`}>
                 <RefCard
                   name={item.reference.artist_name[0].text}
