@@ -13,6 +13,11 @@ body {
   overflow: hidden;
 }
 
+#__next {
+  height: 100vh;
+  position: relative;
+}
+
 // STATIC BACKGROUND
 .static-bg {
   position: absolute;
@@ -74,4 +79,21 @@ h2 {
 
 h3 {
   font-size: 16px;
+}
+
+// SCROLL CONTAINER /page/[uid]
+.scrollctn {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  gap: 16px;
+
+  width: 100%;
+  overflow-y: scroll;
+
+  @include breakpoint($tab) {
+    grid-template-columns: 0.3fr 0.7fr;
+    // overflow-y: hidden;
+  }
 }

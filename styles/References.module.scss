@@ -23,9 +23,13 @@
   flex-direction: column;
   justify-content: flex-start;
   background-color: rgba(0, 0, 0, 0.3);
-  padding: 16px;
-  padding-bottom: 0;
+  padding: 16px 0;
+  padding-right: 16px;
   margin: 0 0 16px 0;
+
+  @include breakpoint($desktop) {
+    padding: 16px;
+  }
 
   figure {
     width: 100%;
@@ -49,19 +53,13 @@
 //   }
 // }
 
-.refbody {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  // padding-right: 16px;
-
-  @include breakpoint($tab) {
-    overflow-y: auto;
-  }
-}
+// .refbody {
+ 
+// }
 
 .backlink {
   padding-left: 19px;
-  margin: 18px 0;
+  margin: 8px 0;
 
   @include breakpoint($tab) {
     margin: 36px 0;

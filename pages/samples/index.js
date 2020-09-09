@@ -6,11 +6,11 @@ import styles from '../../styles/Samples.module.scss'
 
 import Head from 'next/head'
 import { default as NextLink } from 'next/link'
-import { Layout, SmpCard  } from '../../components'
+import { Layout, SmpCard, Header  } from '../../components'
 
-export default function Samples({ res, items }) {
+export default function Samples({ doc, items, menu }) {
 
-  // console.log(res)
+  // console.log(doc)
   // console.log(items)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function Samples({ res, items }) {
   }, [])
 
   return (
-    <Layout isGrid={true}>
+    <Layout>
       <Head>
 
         {/*Primary Meta Tags*/}
@@ -53,7 +53,9 @@ export default function Samples({ res, items }) {
 
       </Head>
 
-      <h1>{res.data.samples_title[0].text}</h1>
+      <Header menu={menu} />
+
+      <h1>{doc.data.samples_title[0].text}</h1>
       
       <div className={styles.grid}>
         {items.map((item, i) => (
@@ -77,20 +79,43 @@ export default function Samples({ res, items }) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ preview = null, previewData = {} }) {
 
-  const req = context.req
-  const res = await Client(req).getSingle('samples')
+  const { ref } = previewData
 
-  const samples = res.data.body
+  const client = Client()
+
+  const doc = await client.getSingle('samples', ref ? { ref } : null) || {}
+  const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
+
+  const samples = doc.data.body
   const index = samples.findIndex((data) => data['slice_type'] === 'list_of_articles')
-  // const items = samples[index].items
   const items = await getSamplePackData(samples[index].items)
 
   return {
     props: {
-      res,
-      items
+      doc,
+      menu,
+      items,
+      preview
     }
   }
 }
+
+// export async function getStaticProps(context) {
+
+//   const req = context.req
+//   const res = await Client(req).getSingle('samples')
+
+//   const samples = res.data.body
+//   const index = samples.findIndex((data) => data['slice_type'] === 'list_of_articles')
+//   // const items = samples[index].items
+//   const items = await getSamplePackData(samples[index].items)
+
+//   return {
+//     props: {
+//       res,
+//       items
+//     }
+//   }
+// }

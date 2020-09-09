@@ -11,7 +11,7 @@ const SliceZone = ({ sliceZone }) => (
         case ('text'):
           return <TextSection slice={slice} key={index} index={index} />
         case ('team'):
-          return <Team slice={slice} key={`slice-${index}`} />
+          return <Team slice={slice} key={index} index={index} />
         default:
           return null
       }

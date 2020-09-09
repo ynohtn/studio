@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Header } from '../components'
+import { Header, Footer } from '../components'
 import {AnimatePresence} from 'framer-motion'
 import '../styles/_globals.scss'
 
@@ -10,11 +10,11 @@ const App = ({ Component, pageProps }) => {
         <link href='https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap' rel='stylesheet'></link>
       </Head>
       
-      <Header />
-      
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} />
       </AnimatePresence>
+
+      <Footer />
 
       <figure className='static-bg'>
         <img src='/wavesbg.svg' alt='background' />

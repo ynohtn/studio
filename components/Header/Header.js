@@ -1,60 +1,47 @@
 import styles from './styles.module.scss'
-import Nav from '../Nav/Nav'
+import { default as NextLink } from 'next/link'
+import { useRouter } from 'next/router'
+import { RichText } from 'prismic-reactjs'
 
-const Header = () => {
+const Header = ({ menu }) => (
+  <header className={styles.header}>
+    <MenuLinks menu={menu} />
+  </header>
+)
+
+const MenuLinks = ({ menu }) => {
+  const router = useRouter()
+  if (menu) {
+    return (
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
+          {menu.data.menu_links.map((menuLink, index) => (
+            <MenuLink
+              menuLink={menuLink}
+              linkType={menuLink.link.type}
+              routerPath={router.pathname}
+              key={`menulink-${index}`}
+            />
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+  return null
+}
+
+const MenuLink = ({ menuLink, routerPath, linkType }) => {
   return (
-    <header className={styles.header}>
-
-      <Nav />
-
-    </header>
+    <li className={routerPath.includes(`/${menuLink.link.uid}`) || (routerPath === '/' && linkType === 'homepage') ? styles.active : ''}>
+      <NextLink href={linkType === 'homepage' ? '/' : `/${menuLink.link.uid}`}>
+        <a>
+          {RichText.asText(menuLink.label)}
+        </a>
+      </NextLink>
+    </li>
   )
 }
 
 export default Header
-
-// TODO : LINK RESOLVING + MENU AUTO FILLED
-// import { default as NextLink } from 'next/link'
-// import { RichText } from 'prismic-reactjs'
-// import { SmartLink } from '../index'
-
-// const Header = ({ menu }) => (
-//   <header className='site-header'>
-//     <NextLink href='/'>
-//       <a><div className='logo'>Example Site</div></a>
-//     </NextLink>
-//     <MenuLinks menu={menu} />
-//   </header>
-// )
-
-// const MenuLinks = ({ menu }) => {
-
-//   console.log(menu)
-//   if (menu) {
-//     return (
-//       <nav>
-//         <ul>
-//           {menu.data.menu_links.map((menuLink, index) => (
-//             <MenuLink
-//               menuLink={menuLink}
-//               key={`menulink-${index}`}
-//             />
-//           ))}
-//         </ul>
-//       </nav>
-//     )
-//   }
-//   return null
-// }
-
-// const MenuLink = ({ menuLink }) => (
-//   <li>
-//     <SmartLink link={menuLink.link}>
-//       {RichText.asText(menuLink.label)}
-//     </SmartLink>
-//   </li>
-// )
-
-// export default Header
 
 
