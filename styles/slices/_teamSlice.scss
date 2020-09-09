@@ -1,13 +1,12 @@
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
   grid-template-rows: 1fr;
   gap: 16px;
 
   width: 100%;
 
   &-item {
-    background-color: rgba(0, 0, 0, 0.3);
 
     &:first-child {
       padding-left: 0;

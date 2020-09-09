@@ -4,6 +4,11 @@
 .aboutbody {
   margin-top: 32px;
   overflow-y: auto;
+  padding-right: 8px;
+
+  @include breakpoint($tab) {
+    padding-right: 0;
+  }
 }
 
 .abouttitle {
@@ -14,7 +19,7 @@
   margin: 8px 0;
   
   @include breakpoint($tab) {
-    margin: 36px 0;
+    margin: 20px 0;
   }
   
   a {
