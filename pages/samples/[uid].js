@@ -45,7 +45,7 @@ export default function SamplePack({ smp, menu, slices, uid }) {
           </div>
           <h2 className={styles.backlink}>
             <NextLink href='/samples'>
-              <a>Back to Samples</a>
+              <a>Samples</a>
             </NextLink>
           </h2>
         </section>
@@ -90,6 +90,7 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
       menu,
       slices,
       uid
-    }
+    },
+    revalidate: 1
   }
 }

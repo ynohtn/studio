@@ -72,7 +72,7 @@ export default function Samples({ doc, items, menu }) {
 
       <h2 className={styles.backlink}>
         <NextLink href='/'>
-          <a>Back to Home</a>
+          <a>Home</a>
         </NextLink>
       </h2>
     </Layout>
@@ -98,7 +98,8 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
       menu,
       items,
       preview
-    }
+    },
+    revalidate: 1
   }
 }
 

@@ -7,6 +7,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex, nofollow" />
         <link href='https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap' rel='stylesheet'></link>
       </Head>
       
