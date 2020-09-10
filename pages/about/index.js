@@ -7,7 +7,7 @@ import { Layout, SliceZone, Header } from '../../components'
 
 export default function About({ doc, slices, menu }) {
 
-  // console.log(doc)
+  console.log(doc)
   // console.log(slices)
 
   return (
@@ -43,7 +43,7 @@ export default function About({ doc, slices, menu }) {
       
       <h2 className={styles.backlink}>
         <NextLink href='/'>
-          <a>Back to Home</a>
+          <a>Home</a>
         </NextLink>
       </h2>
     </Layout>
@@ -60,12 +60,21 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
   const menu = await client.getSingle('menu', ref ? { ref } : null) || {}
   const slices = doc.data.body
 
+
+  // doc.alternate_languages.forEach(function (altLang) {
+  //   var id = altLang.id;
+  //   var uid = altLang.uid;
+  //   var type = altLang.type;
+  //   var lang = altLang.lang;
+  // });
+
   return {
     props: {
       doc,
       menu,
       slices,
       preview
-    }
+    },
+    revalidate: 1
   }
 }

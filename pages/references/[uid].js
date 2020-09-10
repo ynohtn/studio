@@ -48,7 +48,7 @@ export default function Reference({ r, menu, slices, uid }) {
           </div>
           <h2 className={styles.backlink}>
             <NextLink href='/references'>
-              <a>Back to References</a>
+              <a>References</a>
             </NextLink>
           </h2>
         </section>
@@ -92,6 +92,7 @@ export async function getStaticProps({ params, preview = null, previewData = {} 
       menu,
       slices,
       uid
-    }
+    },
+    revalidate: 1
   }
 }
