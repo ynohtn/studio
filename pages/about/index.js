@@ -7,7 +7,7 @@ import { Layout, SliceZone, Header } from '../../components'
 
 export default function About({ doc, slices, menu }) {
 
-  console.log(doc)
+  // console.log(doc)
   // console.log(slices)
 
   return (
