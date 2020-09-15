@@ -1,4 +1,3 @@
-
 export default async (_, res) => {
   res.clearPreviewData();
 
