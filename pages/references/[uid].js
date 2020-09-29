@@ -1,10 +1,9 @@
 import { Client } from '../../lib/prismic-configuration'
 import { getReferences } from '../../lib/api'
-import { motion } from 'framer-motion'
 import styles from '../../styles/References.module.scss'
 import Head from 'next/head'
-import { Layout, SliceZone, Header} from '../../components'
-import { default as NextLink } from 'next/link'
+import { Layout, SliceZone, Backlink} from '../../components'
+import { RichText } from 'prismic-reactjs'
 
 
 export default function Reference({ r, menu, slices, uid }) {
@@ -13,44 +12,38 @@ export default function Reference({ r, menu, slices, uid }) {
   // console.log(slices)
 
   return (
-    <Layout>
+    <Layout menu={menu}>
       <Head>
         {/*Primary Meta Tags*/}
-        <title>{`${r.artist_name[0].text} - ${r.track_name[0].text}`}</title>
-        <meta name="title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
-        <meta name="description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
+        <title>{`${RichText.asText(r.artist_name)} - ${RichText.asText(r.track_name)}`}</title>
+        <meta name="title" content={`Discover ${RichText.asText(r.track_name)} by ${RichText.asText(r.artist_name)} on Studio`} />
+        <meta name="description" content={`Discover ${RichText.asText(r.track_name)} by ${RichText.asText(r.artist_name)} engineered in Studio`} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://studio-seven.vercel.app/references/${uid}`} />
-        <meta property="og:title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
-        <meta property="og:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
+        <meta property="og:title" content={`Discover ${RichText.asText(r.track_name)} by ${RichText.asText(r.artist_name)} on Studio`} />
+        <meta property="og:description" content={`Discover ${RichText.asText(r.track_name)} by ${RichText.asText(r.artist_name)} engineered in Studio`} />
         <meta property="og:image" content={r.cover.url} />
 
         {/* Twitter */}
         <meta property="twitter:card" content={r.cover.url} />
         <meta property="twitter:url" content={`https://studio-seven.vercel.app/references/${uid}`} />
-        <meta property="twitter:title" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} on Studio`} />
-        <meta property="twitter:description" content={`Discover ${r.track_name[0].text} by ${r.artist_name[0].text} engineered in Studio`} />
+        <meta property="twitter:title" content={`Discover ${RichText.asText(r.track_name)} by ${RichText.asText(r.artist_name)} on Studio`} />
+        <meta property="twitter:description" content={`Discover ${RichText.asText(r.track_name)} by ${RichText.asText(r.artist_name)} engineered in Studio`} />
         <meta property="twitter:image" content={r.cover.url} />
       </Head>
       
-      <Header menu={menu} />
-
       <section className="scrollctn">
         <section className={styles.refhead}>
           <figure>
             <img src={r.cover.url} alt={r.cover.alt}/>
           </figure>
           <div className={styles.refinfo}>
-            <h1>{r.artist_name[0].text}</h1>
-            <h2>{r.track_name[0].text}</h2>
+            <h1>{RichText.asText(r.artist_name)}</h1>
+            <h2>{RichText.asText(r.track_name)}</h2>
           </div>
-          <h2 className={styles.backlink}>
-            <NextLink href='/references'>
-              <a>References</a>
-            </NextLink>
-          </h2>
+          <Backlink text='References' href='/references' />
         </section>
         <section className={styles.refbody}>
           <SliceZone sliceZone={slices} />

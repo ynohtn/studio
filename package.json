@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "classnames": "^2.2.6",
     "framer-motion": "^2.6.5",
     "gsap": "^3.5.1",
     "next": "9.5.2",

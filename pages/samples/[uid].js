@@ -2,8 +2,8 @@ import { Client } from '../../lib/prismic-configuration'
 import { getSamplePacks } from '../../lib/api'
 import styles from '../../styles/Samples.module.scss'
 import Head from 'next/head'
-import { Layout, SliceZone, Header } from '../../components'
-import { default as NextLink } from 'next/link'
+import { Layout, SliceZone, Backlink } from '../../components'
+import { RichText } from 'prismic-reactjs'
 
 export default function SamplePack({ smp, menu, slices, uid }) {
   // console.log(smp)
@@ -11,29 +11,27 @@ export default function SamplePack({ smp, menu, slices, uid }) {
   // console.log(slc)
 
   return (
-    <Layout>
+    <Layout menu={menu}>
       <Head>
         {/*Primary Meta Tags*/}
-        <title>{`${smp.pack_name[0].text} sample pack`}</title>
-        <meta name="title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
-        <meta name="description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
+        <title>{`${RichText.asText(smp.pack_name)} sample pack`}</title>
+        <meta name="title" content={`Discover ${RichText.asText(smp.pack_name)} sample pack from Studio`} />
+        <meta name="description" content={`Discover ${RichText.asText(smp.pack_name)} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://studio-seven.vercel.app/samples/${uid}`} />
-        <meta property="og:title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
-        <meta property="og:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
+        <meta property="og:title" content={`Discover ${RichText.asText(smp.pack_name)} sample pack from Studio`} />
+        <meta property="og:description" content={`Discover ${RichText.asText(smp.pack_name)} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
         <meta property="og:image" content={smp.pack_cover.url} />
 
         {/* Twitter */}
         <meta property="twitter:card" content={smp.pack_cover.url} />
         <meta property="twitter:url" content={`https://studio-seven.vercel.app/samples/${uid}`} />
-        <meta property="twitter:title" content={`Discover ${smp.pack_name[0].text} sample pack from Studio`} />
-        <meta property="twitter:description" content={`Discover ${smp.pack_name[0].text} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
+        <meta property="twitter:title" content={`Discover ${RichText.asText(smp.pack_name)} sample pack from Studio`} />
+        <meta property="twitter:description" content={`Discover ${RichText.asText(smp.pack_name)} sample pack made with love by passionnate musicians and audio engineers in Studio`} />
         <meta property="twitter:image" content={smp.pack_cover.url} />
       </Head>
-
-      <Header menu={menu} />
 
       <section className="scrollctn">
         <section className={styles.smphead}>
@@ -41,13 +39,9 @@ export default function SamplePack({ smp, menu, slices, uid }) {
             <img src={smp.pack_cover.url} alt={smp.pack_cover.alt} />
           </figure>
           <div className={styles.smpinfo}>
-            <h1>{smp.pack_name[0].text}</h1>
+            <h1>{RichText.asText(smp.pack_name)}</h1>
           </div>
-          <h2 className={styles.backlink}>
-            <NextLink href='/samples'>
-              <a>Samples</a>
-            </NextLink>
-          </h2>
+          <Backlink text='Samples' href='/samples' />
         </section>
         
         <section className={styles.smpbody}>
