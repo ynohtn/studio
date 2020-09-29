@@ -1,0 +1,48 @@
+@import '../../styles/settings/vars';
+
+.backlink {
+  padding-left: 25px;
+  margin: 8px 0;
+  
+  @include breakpoint($tab) {
+    margin: 20px 0;
+  }
+  
+  a {
+    position: relative;
+
+    &:hover {
+
+      &:after {
+        animation: goBack 0.8s infinite;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: -24px;
+      bottom: 5px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 12.124px solid $purple;
+
+      @include breakpoint($desktop) {
+        bottom: 9px;
+      }
+    }
+  }
+}
+
+// ARROW ANIM BACKLINK
+@keyframes goBack{
+  0%, 100% {
+    left: -20px;
+  }
+
+  50% {
+    left: -15px;
+  }
+}

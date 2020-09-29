@@ -6,7 +6,8 @@ import styles from '../../styles/Samples.module.scss'
 
 import Head from 'next/head'
 import { default as NextLink } from 'next/link'
-import { Layout, SmpCard, Header  } from '../../components'
+import { Layout, SmpCard, Backlink } from '../../components'
+import { RichText } from 'prismic-reactjs'
 
 export default function Samples({ doc, items, menu }) {
 
@@ -29,7 +30,7 @@ export default function Samples({ doc, items, menu }) {
   }, [])
 
   return (
-    <Layout>
+    <Layout menu={menu}>
       <Head>
 
         {/*Primary Meta Tags*/}
@@ -53,16 +54,14 @@ export default function Samples({ doc, items, menu }) {
 
       </Head>
 
-      <Header menu={menu} />
-
-      <h1>{doc.data.samples_title[0].text}</h1>
+      <h1>{RichText.asText(doc.data.samples_title)}</h1>
       
       <div className={styles.grid}>
         {items.map((item, i) => (
           <NextLink key={i} href={'samples/[uid]'} as={`samples/${item.sample.uid}`}>
             <a id={`griditem`}>
               <SmpCard
-                name={item.sample.pack_name[0].text}
+                name={RichText.asText(item.sample.pack_name)}
                 cover={item.sample.pack_cover}
               />
             </a>
@@ -70,11 +69,8 @@ export default function Samples({ doc, items, menu }) {
         ))}
       </div>
 
-      <h2 className={styles.backlink}>
-        <NextLink href='/'>
-          <a>Home</a>
-        </NextLink>
-      </h2>
+      <Backlink text='Home' href='/' />
+
     </Layout>
   )
 }

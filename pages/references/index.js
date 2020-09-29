@@ -6,7 +6,8 @@ import styles from '../../styles/References.module.scss'
 
 import Head from 'next/head'
 import { default as NextLink } from 'next/link'
-import { Layout, RefCard, Header } from '../../components'
+import { Layout, RefCard, Backlink } from '../../components'
+import { RichText } from 'prismic-reactjs'
 
 
 export default function References({ doc, items, menu }) {
@@ -40,7 +41,7 @@ export default function References({ doc, items, menu }) {
   }, [])
 
   return (
-    <Layout>
+    <Layout menu={menu}>
       <Head>
         {/*Primary Meta Tags*/}
         <title>References</title>
@@ -62,9 +63,7 @@ export default function References({ doc, items, menu }) {
         <meta property="twitter:image" content="/meta-cover.jpg" />
       </Head>
 
-      <Header menu={menu} />
-
-      <h1>{doc.data.single_title[0].text}</h1>
+      <h1>{RichText.asText(doc.data.single_title)}</h1>
 
       <div className={styles.grid}>
         {items.map((item, i) => (
@@ -73,8 +72,8 @@ export default function References({ doc, items, menu }) {
           >
               <a id={`griditem`}>
                 <RefCard
-                  name={item.reference.artist_name[0].text}
-                  track={item.reference.track_name[0].text}
+                  name={RichText.asText(item.reference.artist_name)}
+                  track={RichText.asText(item.reference.track_name)}
                   cover={item.reference.cover}
                 />
               </a>
@@ -82,11 +81,8 @@ export default function References({ doc, items, menu }) {
           ))}
       </div>
 
-      <h2 className={styles.backlink}>
-        <NextLink href='/'>
-          <a>Home</a>
-        </NextLink>
-      </h2>
+      <Backlink text='Home' href='/' />
+
     </Layout>
   )
 }

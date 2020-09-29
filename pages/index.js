@@ -10,7 +10,7 @@ export default function Home({ doc, menu }) {
   // console.log(menu)
 
   return (
-    <Layout>
+    <Layout menu={menu}>
       <Head>
         {/*Primary Meta Tags*/}
         <title>{doc.data.site_name[0].text}</title>
@@ -32,8 +32,6 @@ export default function Home({ doc, menu }) {
         <meta property="twitter:image" content="/meta-cover.jpg" />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <Header menu={menu} />
 
       <div className={styles.homectn}>
         <h1 className={styles.hometitle}>{doc.data.site_name[0].text}</h1>
