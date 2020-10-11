@@ -1,0 +1,25 @@
+@import '../../../styles/settings/vars';
+
+.layout {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 100%;
+	height: calc(100vh - 120px);
+	max-width: 1440px;
+	margin: 0 auto;
+	padding-left: 16px;
+	padding-right: 0;
+	z-index: 666;
+
+	@include breakpoint($tab) {
+		height: calc(100vh - 180px);
+		padding-right: 16px;
+	}
+}
+
+.index {
+	z-index: -666;
+}

@@ -1,41 +1,40 @@
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
-  grid-template-rows: 1fr;
-  gap: 16px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
+	grid-template-rows: 1fr;
+	gap: 16px;
 
-  width: 100%;
+	width: 100%;
 
-  &-item {
+	&-item {
+		&:first-child {
+			padding-left: 0;
+		}
 
-    &:first-child {
-      padding-left: 0;
-    }
+		&:last-child {
+			padding-right: 0;
+		}
 
-    &:last-child {
-      padding-right: 0;
-    }
+		figure {
+			width: 100%;
+			img {
+				width: 100%;
+				object-fit: cover;
+			}
+		}
 
-    figure {
-      width: 100%;
-      img {
-        width: 100%;
-        object-fit: cover;
-      }
-    }
+		&-ctn {
+			padding: 0 8px;
+		}
 
-    &-ctn {
-      padding: 0 8px;
-    }
+		h3 {
+		}
 
-    h3 {
-    }
+		h4 {
+			margin-bottom: 8px;
+		}
 
-    h4 {
-      margin-bottom: 8px;
-    }
-
-    &-desc {
-    }
-  }
+		&-desc {
+		}
+	}
 }

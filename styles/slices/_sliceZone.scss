@@ -1,44 +1,44 @@
 // SLICEZONE
 .slice-ctn {
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 16px;
-  
-  // RICHTEXT IMG BLOCK
-  p.block-img {
-    text-align: center;
+	overflow: hidden;
+	// background-color: rgba(0, 0, 0, 0.3);
+	padding: 16px;
 
-    img {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-  }
+	// RICHTEXT IMG BLOCK
+	p.block-img {
+		text-align: center;
 
-  // CONTENT SECTION
-  section.content-section {
-    margin: 32px 0;
-    text-align: justify;
+		img {
+			width: 100%;
+			max-width: 500px;
+			margin: 0 auto;
+		}
+	}
 
-    &:first-child {
-      margin-top: 0;
-    }
+	// CONTENT SECTION
+	section.content-section {
+		margin: 32px 0;
+		text-align: justify;
 
-    .team-section-title {
-      margin-bottom: 16px;
-    }
+		&:first-child {
+			margin-top: 0;
+		}
 
-    p {
-      margin: 16px 0;
+		.team-section-title {
+			margin-bottom: 16px;
+		}
 
-      &:first-child {
-        margin-top: 0;
-      }
-    }
+		p {
+			margin: 16px 0;
 
-    // SOUNDCLOUD
-    .embed-soundcloud {
-      width: 100%;
-    }
-  }
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		// SOUNDCLOUD
+		.embed-soundcloud {
+			width: 100%;
+		}
+	}
 }
