@@ -3,84 +3,26 @@ import { getReferences } from '../../lib/api';
 import { useContext } from 'react';
 import ThemeContext from '../../utils/context/themeContext';
 import styles from '../../styles/References.module.scss';
-import Head from 'next/head';
-import { Layout, SliceZone, Backlink } from '../../components';
+import { useRouter } from 'next/router';
+import { Layout, SliceZone, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function Reference({ r, menu, slices, uid }) {
+export default function Reference({ r, menu, slices, doc }) {
+	const router = useRouter();
 	const { darkMode } = useContext(ThemeContext);
 	const className = cx({
 		bodyDark: darkMode && styles.bodyDark,
 		bodyLight: !darkMode && styles.bodyLight
 	});
 	// console.log(r)
-	// console.log(uid)
 	// console.log(slices)
 
 	return (
 		<Layout menu={menu}>
-			<Head>
-				{/*Primary Meta Tags*/}
-				<title>{`${RichText.asText(r.artist_name)} - ${RichText.asText(
-					r.track_name
-				)}`}</title>
-				<meta
-					name="title"
-					content={`Discover ${RichText.asText(
-						r.track_name
-					)} by ${RichText.asText(r.artist_name)} on Studio`}
-				/>
-				<meta
-					name="description"
-					content={`Discover ${RichText.asText(
-						r.track_name
-					)} by ${RichText.asText(r.artist_name)} engineered in Studio`}
-				/>
-
-				{/* Open Graph / Facebook */}
-				<meta property="og:type" content="article" />
-				<meta
-					property="og:url"
-					content={`https://studio-seven.vercel.app/references/${uid}`}
-				/>
-				<meta
-					property="og:title"
-					content={`Discover ${RichText.asText(
-						r.track_name
-					)} by ${RichText.asText(r.artist_name)} on Studio`}
-				/>
-				<meta
-					property="og:description"
-					content={`Discover ${RichText.asText(
-						r.track_name
-					)} by ${RichText.asText(r.artist_name)} engineered in Studio`}
-				/>
-				<meta property="og:image" content={r.cover.url} />
-
-				{/* Twitter */}
-				<meta property="twitter:card" content={r.cover.url} />
-				<meta
-					property="twitter:url"
-					content={`https://studio-seven.vercel.app/references/${uid}`}
-				/>
-				<meta
-					property="twitter:title"
-					content={`Discover ${RichText.asText(
-						r.track_name
-					)} by ${RichText.asText(r.artist_name)} on Studio`}
-				/>
-				<meta
-					property="twitter:description"
-					content={`Discover ${RichText.asText(
-						r.track_name
-					)} by ${RichText.asText(r.artist_name)} engineered in Studio`}
-				/>
-				<meta property="twitter:image" content={r.cover.url} />
-			</Head>
-
+			<Seo info={doc} path={router.asPath} />
 			<section className="scrollctn">
 				<section className={`${styles.refhead} ${className}`}>
 					<figure>
@@ -90,7 +32,6 @@ export default function Reference({ r, menu, slices, uid }) {
 						<h1>{RichText.asText(r.artist_name)}</h1>
 						<h2>{RichText.asText(r.track_name)}</h2>
 					</div>
-					{/* <Backlink text='References' href='/references' /> */}
 				</section>
 				<section className={className}>
 					<SliceZone sliceZone={slices} />
@@ -129,14 +70,13 @@ export async function getStaticProps({
 
 	const r = doc.data;
 	const slices = doc.data.body;
-	const uid = params.uid;
 
 	return {
 		props: {
 			r,
 			menu,
 			slices,
-			uid
+			doc
 		},
 		revalidate: 1
 	};

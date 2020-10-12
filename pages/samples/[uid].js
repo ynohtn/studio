@@ -1,85 +1,29 @@
 import { Client } from '../../lib/prismic-configuration';
 import { getSamplePacks } from '../../lib/api';
-import Head from 'next/head';
 import { useContext } from 'react';
 import ThemeContext from '../../utils/context/themeContext';
 import styles from '../../styles/Samples.module.scss';
-import { Layout, SliceZone, Backlink } from '../../components';
+import { useRouter } from 'next/router';
+import { Layout, SliceZone, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function SamplePack({ smp, menu, slices, uid }) {
-	// console.log(smp)
-	// console.log(slices)
-	// console.log(slc)
-
+export default function SamplePack({ smp, menu, slices, doc }) {
+	const router = useRouter();
 	const { darkMode } = useContext(ThemeContext);
 	const className = cx({
 		bodyDark: darkMode && styles.bodyDark,
 		bodyLight: !darkMode && styles.bodyLight
 	});
+	// console.log(smp)
+	// console.log(slices)
+	// console.log(router);
 
 	return (
 		<Layout menu={menu}>
-			<Head>
-				{/*Primary Meta Tags*/}
-				<title>{`${RichText.asText(smp.pack_name)} sample pack`}</title>
-				<meta
-					name="title"
-					content={`Discover ${RichText.asText(
-						smp.pack_name
-					)} sample pack from Studio`}
-				/>
-				<meta
-					name="description"
-					content={`Discover ${RichText.asText(
-						smp.pack_name
-					)} sample pack made with love by passionnate musicians and audio engineers in Studio`}
-				/>
-
-				{/* Open Graph / Facebook */}
-				<meta property="og:type" content="article" />
-				<meta
-					property="og:url"
-					content={`https://studio-seven.vercel.app/samples/${uid}`}
-				/>
-				<meta
-					property="og:title"
-					content={`Discover ${RichText.asText(
-						smp.pack_name
-					)} sample pack from Studio`}
-				/>
-				<meta
-					property="og:description"
-					content={`Discover ${RichText.asText(
-						smp.pack_name
-					)} sample pack made with love by passionnate musicians and audio engineers in Studio`}
-				/>
-				<meta property="og:image" content={smp.pack_cover.url} />
-
-				{/* Twitter */}
-				<meta property="twitter:card" content={smp.pack_cover.url} />
-				<meta
-					property="twitter:url"
-					content={`https://studio-seven.vercel.app/samples/${uid}`}
-				/>
-				<meta
-					property="twitter:title"
-					content={`Discover ${RichText.asText(
-						smp.pack_name
-					)} sample pack from Studio`}
-				/>
-				<meta
-					property="twitter:description"
-					content={`Discover ${RichText.asText(
-						smp.pack_name
-					)} sample pack made with love by passionnate musicians and audio engineers in Studio`}
-				/>
-				<meta property="twitter:image" content={smp.pack_cover.url} />
-			</Head>
-
+			<Seo info={doc} path={router.asPath} />
 			<section className="scrollctn">
 				<section className={`${styles.smphead} ${className}`}>
 					<figure>
@@ -88,7 +32,6 @@ export default function SamplePack({ smp, menu, slices, uid }) {
 					<div className={styles.smpinfo}>
 						<h1>{RichText.asText(smp.pack_name)}</h1>
 					</div>
-					{/* <Backlink text='Samples' href='/samples' /> */}
 				</section>
 
 				<section className={className}>
@@ -132,14 +75,13 @@ export async function getStaticProps({
 	const slices = doc.data.body;
 	// Sample pack
 	const smp = doc.data;
-	const uid = params.uid;
 
 	return {
 		props: {
 			smp,
 			menu,
 			slices,
-			uid
+			doc
 		},
 		revalidate: 1
 	};

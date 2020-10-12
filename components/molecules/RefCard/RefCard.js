@@ -6,7 +6,7 @@ const RefCard = ({ name, track, cover }) => {
 	return (
 		<motion.div
 			whileHover={{ scale: 1.055, zIndex: 666 }}
-			whileTap={{ scale: 0.95, zIndex: -666, transition: { duration: 0.4 } }}
+			whileTap={{ scale: 0.95, zIndex: -666, transition: { duration: 0.25 } }}
 		>
 			<div className={styles.refcard}>
 				<figure>
