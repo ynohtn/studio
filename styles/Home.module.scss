@@ -1,41 +1,39 @@
 @import './settings/vars';
 
 .homectn {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .hometitle {
-  font-size: 39px;
-  line-height: 30px;
-  text-align: left;
-  padding-right: 10px;
+	font-size: 39px;
+	line-height: 30px;
+	text-align: left;
+	padding-right: 10px;
 
+	@include breakpoint($tab) {
+		font-size: 169px;
+		padding-right: 30px;
+	}
 
-  @include breakpoint($tab) {
-    font-size: 169px;
-    padding-right: 30px;
-  }
-
-  @include breakpoint($desktop) {
-    padding-right: 130px;
-  }
+	@include breakpoint($desktop) {
+		padding-right: 130px;
+	}
 }
 
 .homesubtitle {
-  line-height: 30px;
-  text-align: left;
-  padding-right: 20px;
-  
-  
-  @include breakpoint($tab) {
-    font-size: 39px;
-    margin: 60px 0 0 7px;
-  }
+	line-height: 30px;
+	text-align: left;
+	padding-right: 20px;
+
+	@include breakpoint($tab) {
+		font-size: 39px;
+		margin: 60px 0 0 7px;
+	}
 }
 
 .space {
-  padding-right: 6px;
+	padding-right: 6px;
 }

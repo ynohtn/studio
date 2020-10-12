@@ -1,39 +1,27 @@
 @import './settings/vars';
 
-// PAGE STYLE
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
-  grid-template-rows: repeat(6, 1fr);
-  gap: 16px;
-
-  overflow-y: auto;
-  height: 100%;
-  margin-top: 32px;
-  padding-right: 8px;
-
-  @include breakpoint($desktop) {
-    overflow-y: scroll;
-  }
+// INDEX STYLE
+.pad {
+	padding-left: 10px;
 }
 
-// POST STYLE
+// UID STYLE
 .refhead {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 16px;
 
-  figure {
-    width: 100%;
-    text-align: center;
+	figure {
+		width: 100%;
+		text-align: center;
 
-    img {
-      width: 100%;
-      object-fit: cover;
-    }
-  }
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
 }
 
 // .refinfo {
@@ -48,5 +36,13 @@
 // }
 
 // .refbody {
- 
+
 // }
+
+.bodyDark {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bodyLight {
+	background-color: rgba(255, 255, 255, 0.9);
+}

@@ -1,10 +1,10 @@
 // FONTS
-$mr : 'Manrope', sans-serif;
+$mr: 'Manrope', sans-serif;
 
 // COLORS
-$white: #FCFCFC;
-$black: #0E0E0E;
-$purple: #AB87FF;
+$white: #fcfcfc;
+$black: #0e0e0e;
+$purple: #ab87ff;
 
 // VARS
 // FONT WEIGHTS
@@ -26,13 +26,13 @@ $large: 1440;
 
 // MEDIA QUERY MIXIN
 @mixin breakpoint($point) {
-  @media (min-width: $point + 'px') {
-    @content;
-  }
+	@media (min-width: $point + 'px') {
+		@content;
+	}
 }
 
 @mixin wh($w, $h) {
-  @media (min-width: $w + 'px') and (min-height: $h + 'px') {
-    @content;
-  }
+	@media (min-width: $w + 'px') and (min-height: $h + 'px') {
+		@content;
+	}
 }

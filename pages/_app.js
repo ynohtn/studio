@@ -1,25 +1,33 @@
-import Head from 'next/head'
-// import { Header, Footer, Cursor } from '../components'
-import {AnimatePresence} from 'framer-motion'
-import '../styles/_globals.scss'
+import Head from 'next/head';
+import ThemeContext from '../utils/context/themeContext';
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { ErrorBoundary } from '../components';
+import '../styles/_globals.scss';
 
 const App = ({ Component, pageProps }) => {
-  return (
-    <>
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-        <link href='https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap' rel='stylesheet'></link>
-      </Head>
+	const [darkMode, setDarkMode] = useState(true);
 
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} />
-      </AnimatePresence>
+	return (
+		<div className={darkMode ? 'darkMode' : 'lightMode'}>
+			<Head>
+				<meta name="robots" content="noindex, nofollow" />
+				<link
+					href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap"
+					rel="stylesheet"
+				></link>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 
-      <figure className='static-bg'>
-        <img src='/wavesbg.svg' alt='background' />
-      </figure>
-    </>
-  )
-}
+			<ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+				<ErrorBoundary>
+					<AnimatePresence exitBeforeEnter>
+						<Component {...pageProps} />
+					</AnimatePresence>
+				</ErrorBoundary>
+			</ThemeContext.Provider>
+		</div>
+	);
+};
 
-export default App
+export default App;

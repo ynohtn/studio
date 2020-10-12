@@ -2,14 +2,23 @@
 
 // INDEX STYLE
 .aboutbody {
-  margin-top: 32px;
-  overflow-y: auto;
-  padding-right: 8px;
+	margin-top: 32px;
+	overflow-y: auto;
+	padding-right: 8px;
 
-  @include breakpoint($tab) {
-    padding-right: 0;
-  }
+	@include breakpoint($tab) {
+		padding-right: 0;
+	}
 }
 
-// .abouttitle {
-// }
+.abouttitle {
+	padding-left: 10px;
+}
+
+.bodyDark {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bodyLight {
+	background-color: rgba(255, 255, 255, 0.9);
+}

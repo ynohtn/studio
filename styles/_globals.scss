@@ -5,96 +5,111 @@
 
 // GLOBAL STYLE
 body {
-  background: $black;
-  color: $white;
-  font-family: $mr;
-  line-height: 28px;
-  height: 100vh;
-  overflow: hidden;
+	background: $black;
+	color: $white;
+	font-family: $mr;
+	line-height: 28px;
+	height: 100vh;
+	overflow: hidden;
 }
 
 #__next {
-  height: 100vh;
-  position: relative;
+	height: 100vh;
+	position: relative;
 }
 
 // STATIC BACKGROUND
 .static-bg {
-  position: absolute;
-  top: 55%;
-  left: 0;
-  z-index: -666;
-  width: 100vw;
+	position: absolute;
+	top: 55%;
+	left: 0;
+	z-index: 69;
+	width: 100vw;
 
-  @include breakpoint($large) {
-    top: 25%;
-  }
+	@include breakpoint($large) {
+		top: 25%;
+	}
 
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
 }
 
 // CUSTOM SCROLLBARS
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0);
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0);
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  background-color:  rgba(0,0,0,0);
+	width: 8px;
+	background-color: rgba(0, 0, 0, 0);
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 7px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: $purple;
+	border-radius: 7px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: $purple;
 }
 
 // TITLES
-h1, h2, h3, h4, h5, h6 {
-  font-weight: $smb;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: $smb;
 }
 
 h1 {
-  font-size: 36px;
-  line-height: 42px;
-  
-  @include breakpoint($desktop) {
-    font-size: 48px;
-  }
+	font-size: 36px;
+	line-height: 42px;
+
+	@include breakpoint($desktop) {
+		font-size: 48px;
+	}
 }
 
 h2 {
-  font-size: 18px;
-  line-height: 32px;
+	font-size: 18px;
+	line-height: 32px;
 
-  @include breakpoint($desktop) {
-    font-size: 24px;
-  }
+	@include breakpoint($desktop) {
+		font-size: 24px;
+	}
 }
 
 h3 {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 // SCROLL CONTAINER /page/[uid]
 .scrollctn {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  justify-content: center;
-  gap: 16px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	justify-content: center;
+	gap: 16px;
 
-  width: 100%;
-  padding-right: 8px;
-  overflow-y: scroll;
+	width: 100%;
+	padding-right: 8px;
+	overflow-y: scroll;
 
-  @include breakpoint($tab) {
-    grid-template-columns: 0.3fr 0.7fr;
-    padding-right: 0px;
-  }
+	@include breakpoint($tab) {
+		grid-template-columns: 0.3fr 0.7fr;
+		padding-right: 0px;
+	}
+}
+
+.darkMode {
+	color: $white;
+	background-color: $black;
+}
+
+.lightMode {
+	color: $black;
+	background-color: $white;
 }

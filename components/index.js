@@ -1,9 +1,11 @@
-export { default as Header } from './Header/Header'
-// export { default as Nav } from './Nav/Nav'
-export { default as Layout } from './Layout/Layout'
-export { default as Backlink } from './Backlink/Backlink'
-// export { default as Cursor } from './Cursor/Cursor'
-export { default as RefCard } from './RefCard/RefCard'
-export { default as SmpCard } from './SmpCard/SmpCard'
-export { default as Footer } from './Footer/Footer'
-export { SliceZone } from './slices'
+export { default as Header } from './elements/Header/Header';
+export { default as Layout } from './elements/Layout/Layout';
+export { default as SliceZone } from './slices/SliceZone';
+export { default as Grid } from './elements/Grid/Grid';
+export { default as RefCard } from './molecules/RefCard/RefCard';
+export { default as SmpCard } from './molecules/SmpCard/SmpCard';
+export { default as Switcher } from './atoms/Switch/Switch';
+export { default as Footer } from './elements/Footer/Footer';
+export { default as Backlink } from './atoms/Backlink/Backlink';
+export { default as ErrorBoundary } from './ErrorBoundary';
+export { default as Seo } from './Seo';

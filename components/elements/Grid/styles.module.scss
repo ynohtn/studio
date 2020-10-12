@@ -1,0 +1,19 @@
+@import '../../../styles/settings/vars';
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+	grid-template-rows: repeat(6, 1fr);
+	gap: 16px;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 100%;
+	margin-top: 32px;
+	padding: 10px 10px;
+	padding-right: 8px;
+
+	@include breakpoint($desktop) {
+		overflow-y: scroll;
+	}
+}
