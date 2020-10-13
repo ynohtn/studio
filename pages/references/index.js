@@ -16,7 +16,7 @@ export default function References({ doc, items }) {
 
 			<h1 className={styles.pad}>{RichText.asText(doc.data.title)}</h1>
 
-			<Grid items={items} type={doc.type} />
+			<Grid items={items} />
 		</>
 	);
 }

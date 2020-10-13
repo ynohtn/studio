@@ -20,7 +20,6 @@ export default function SamplePack({ smp, slices, doc }) {
 	// console.log(smp)
 	// console.log(slices)
 	// console.log(router);
-	console.log(darkMode);
 
 	return (
 		<>

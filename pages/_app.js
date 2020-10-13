@@ -13,7 +13,7 @@ import '../styles/_globals.scss';
 
 const App = ({ Component, pageProps }) => {
 	const [darkMode, setDarkMode] = useState(true);
-	// console.log(pageProps.doc.type);
+	console.log(pageProps.doc.type);
 	return (
 		<div className={darkMode ? 'darkMode' : 'lightMode'}>
 			<Head>
