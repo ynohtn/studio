@@ -19,6 +19,7 @@ export default function Reference({ r, slices, doc }) {
 	});
 	// console.log(r)
 	// console.log(slices)
+	console.log(darkMode);
 
 	return (
 		<>

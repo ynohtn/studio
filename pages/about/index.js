@@ -18,7 +18,7 @@ export default function About({ doc, slices }) {
 	});
 	// console.log(doc)
 	// console.log(slices)
-	// console.log(darkMode);
+	console.log(darkMode);
 
 	return (
 		<>
