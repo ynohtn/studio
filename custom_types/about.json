@@ -1,87 +1,128 @@
 {
-	"Main": {
-		"uid": {
-			"type": "UID",
-			"config": {
-				"label": "Nom de la page",
-				"placeholder": "Nom de la page"
-			}
-		},
-		"about_title": {
-			"type": "StructuredText",
-			"config": {
-				"single": "heading1",
-				"label": "Titre de la page",
-				"placeholder": "titre de la page"
-			}
-		},
-		"body": {
-			"type": "Slices",
-			"fieldset": "Slice zone",
-			"config": {
-				"labels": {},
-				"choices": {
-					"quote": {
-						"type": "Slice",
-						"fieldset": "Quote",
-						"description": "A short quote with author's portrait",
-						"icon": "add_alert",
-						"non-repeat": {
-							"quote": {
-								"type": "StructuredText",
-								"config": {
-									"single": "em",
-									"label": "Quote",
-									"placeholder": "Your quote"
-								}
-							},
-							"name_of_the_author": {
-								"type": "StructuredText",
-								"config": {
-									"multi": "paragraph",
-									"label": "Name of the author",
-									"placeholder": "John Doe"
-								}
-							},
-							"portrait_author": {
-								"type": "Image",
-								"config": {
-									"constraint": {
-										"width": 700,
-										"height": 700
-									},
-									"thumbnails": [
-										{
-											"name": "mobile",
-											"width": 350,
-											"height": 350
-										}
-									],
-									"label": "Portrait Author"
-								}
-							}
-						},
-						"repeat": {}
-					},
-					"text": {
-						"type": "Slice",
-						"fieldset": "Text",
-						"description": "Rich Text Section",
-						"icon": "text_fields",
-						"non-repeat": {
-							"text": {
-								"type": "StructuredText",
-								"config": {
-									"multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-									"label": "text",
-									"placeholder": "Your content here"
-								}
-							}
-						},
-						"repeat": {}
-					}
-				}
-			}
-		}
-	}
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Nom de la page",
+        "placeholder" : "Nom de la page"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Titre de la page",
+        "placeholder" : "titre de la page"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "team" : [ ]
+        },
+        "choices" : {
+          "text" : {
+            "type" : "Slice",
+            "fieldset" : "Text",
+            "description" : "Rich Text Section",
+            "icon" : "text_fields",
+            "non-repeat" : {
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "text",
+                  "placeholder" : "Your content here"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "team" : {
+            "type" : "Slice",
+            "fieldset" : "Team",
+            "description" : "Section for team member information with portrait",
+            "icon" : "person_pin",
+            "non-repeat" : {
+              "team_section" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Team Section",
+                  "placeholder" : "Management"
+                }
+              }
+            },
+            "repeat" : {
+              "name" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "heading3",
+                  "label" : "Name",
+                  "placeholder" : "name"
+                }
+              },
+              "position" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Position",
+                  "placeholder" : "Design director"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "Description",
+                  "placeholder" : "about the teamate"
+                }
+              },
+              "portrait" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1000,
+                    "height" : 1000
+                  },
+                  "thumbnails" : [ {
+                    "name" : "Mobile",
+                    "width" : 500,
+                    "height" : 500
+                  } ],
+                  "label" : "Portrait"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "SEO" : {
+    "seo_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo Title",
+        "placeholder" : "Seo Title"
+      }
+    },
+    "seo_desc" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo Desc",
+        "placeholder" : "Seo Desc"
+      }
+    },
+    "seo_banner" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Seo Banner"
+      }
+    }
+  }
 }

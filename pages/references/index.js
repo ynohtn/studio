@@ -2,7 +2,7 @@ import { Client } from '../../lib/prismic-configuration';
 import { getReferenceData } from '../../lib/api';
 import styles from '../../styles/References.module.scss';
 import { useRouter } from 'next/router';
-import { Layout, Grid, Seo } from '../../components';
+import { Grid, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 
 export default function References({ doc, items }) {

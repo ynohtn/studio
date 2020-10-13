@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import ThemeContext from '../../utils/context/themeContext';
 import styles from '../../styles/About.module.scss';
 import { useRouter } from 'next/router';
-import { Layout, SliceZone, Seo } from '../../components';
+import { SliceZone, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 import classNames from 'classnames/bind';
 

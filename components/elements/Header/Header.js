@@ -36,7 +36,11 @@ const Nav = ({ menu }) => {
 };
 
 const NavItem = ({ menuLink, routerPath, linkType }) => {
-	const { darkMode } = useContext(ThemeContext);
+	const {
+		darkMode
+		// pageType,
+		// dispatchPageType
+	} = useContext(ThemeContext);
 	const className = cx({
 		active:
 			routerPath.includes(`/${menuLink.link.uid}`) ||
@@ -46,11 +50,22 @@ const NavItem = ({ menuLink, routerPath, linkType }) => {
 		activeDark: darkMode && styles.activeDark,
 		activeLight: !darkMode && styles.activeLight
 	});
+	// const router = useRouter();
 
+	// const handlePageType = (e) => {
+	// 	dispatchPageType({ type: linkType });
+	// 	e.preventDefault();
+	// 	router.push(linkType === 'homepage' ? '/' : `/${menuLink.link.uid}`);
+	// 	console.log(pageType);
+	// };
 	return (
 		<li className={className}>
 			<NextLink href={linkType === 'homepage' ? '/' : `/${menuLink.link.uid}`}>
-				<a>{RichText.asText(menuLink.label)}</a>
+				<a
+				// onClick={handlePageType}
+				>
+					{RichText.asText(menuLink.label)}
+				</a>
 			</NextLink>
 		</li>
 	);

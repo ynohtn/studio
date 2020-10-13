@@ -18,7 +18,8 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-text-loop": "^2.3.0",
-		"sass": "^1.26.10"
+		"sass": "^1.26.10",
+		"uuid": "^8.3.1"
 	},
 	"devDependencies": {
 		"prettier": "2.1.2"
