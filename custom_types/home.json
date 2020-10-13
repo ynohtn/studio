@@ -1,12 +1,36 @@
 {
-	"Main": {
-		"site_name": {
-			"type": "StructuredText",
-			"config": {
-				"single": "heading1",
-				"label": "Site name",
-				"placeholder": "Nom du site"
-			}
-		}
-	}
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Site name",
+        "placeholder" : "Nom du site"
+      }
+    }
+  },
+  "SEO" : {
+    "seo_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo Title",
+        "placeholder" : "Seo Title"
+      }
+    },
+    "seo_desc" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo Desc",
+        "placeholder" : "Seo Desc"
+      }
+    },
+    "seo_banner" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Seo Banner"
+      }
+    }
+  }
 }

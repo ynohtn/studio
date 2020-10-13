@@ -3,13 +3,13 @@ import { useContext } from 'react';
 import ThemeContext from '../../utils/context/themeContext';
 import styles from '../../styles/About.module.scss';
 import { useRouter } from 'next/router';
-import { Layout, SliceZone, Seo } from '../../components';
+import { SliceZone, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function About({ doc, slices, menu }) {
+export default function About({ doc, slices }) {
 	const router = useRouter();
 	const { darkMode } = useContext(ThemeContext);
 	const className = cx({
@@ -20,7 +20,7 @@ export default function About({ doc, slices, menu }) {
 	// console.log(slices)
 
 	return (
-		<Layout menu={menu}>
+		<>
 			<Seo info={doc} path={router.pathname} />
 
 			<h1 className={styles.abouttitle}>{RichText.asText(doc.data.title)}</h1>
@@ -28,7 +28,7 @@ export default function About({ doc, slices, menu }) {
 			<section className={`${styles.aboutbody} ${className}`}>
 				<SliceZone sliceZone={slices} />
 			</section>
-		</Layout>
+		</>
 	);
 }
 
@@ -39,6 +39,7 @@ export async function getStaticProps({ preview = null, previewData = {} }) {
 
 	const doc = (await client.getSingle('about', ref ? { ref } : null)) || {};
 	const menu = (await client.getSingle('menu', ref ? { ref } : null)) || {};
+
 	const slices = doc.data.body;
 
 	return {

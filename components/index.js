@@ -5,6 +5,7 @@ export { default as Grid } from './elements/Grid/Grid';
 export { default as RefCard } from './molecules/RefCard/RefCard';
 export { default as SmpCard } from './molecules/SmpCard/SmpCard';
 export { default as Switcher } from './atoms/Switch/Switch';
+export { default as Background } from './atoms/Background/Background';
 export { default as Footer } from './elements/Footer/Footer';
 export { default as Backlink } from './atoms/Backlink/Backlink';
 export { default as ErrorBoundary } from './ErrorBoundary';

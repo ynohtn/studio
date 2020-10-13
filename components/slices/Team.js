@@ -1,17 +1,37 @@
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
 import { RichText } from 'prismic-reactjs';
 
-const Team = ({ slice }) => (
-	<section className="team-section content-section">
-		<h2 className="team-section-title">
-			{RichText.asText(slice.primary.team_section)}
-		</h2>
-		<div className="team-grid">
-			{slice.items.map((item, index) => (
-				<TeamMember item={item} key={index} />
-			))}
-		</div>
-	</section>
-);
+const Team = ({ slice }) => {
+	useEffect(() => {
+		gsap.fromTo(
+			'.team-grid-item',
+			{
+				x: -100,
+				opacity: 0
+			},
+			{
+				x: 0,
+				opacity: 1,
+				duration: 1,
+				stagger: 0.1
+			}
+		);
+	}, []);
+
+	return (
+		<section className="team-section content-section">
+			<h2 className="team-section-title">
+				{RichText.asText(slice.primary.team_section)}
+			</h2>
+			<div className="team-grid">
+				{slice.items.map((item, index) => (
+					<TeamMember item={item} key={index} />
+				))}
+			</div>
+		</section>
+	);
+};
 
 const TeamMember = ({ item }) => (
 	<div className="team-grid-item">

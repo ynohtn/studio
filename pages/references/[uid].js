@@ -4,13 +4,13 @@ import { useContext } from 'react';
 import ThemeContext from '../../utils/context/themeContext';
 import styles from '../../styles/References.module.scss';
 import { useRouter } from 'next/router';
-import { Layout, SliceZone, Seo } from '../../components';
+import { Backlink, SliceZone, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function Reference({ r, menu, slices, doc }) {
+export default function Reference({ r, slices, doc }) {
 	const router = useRouter();
 	const { darkMode } = useContext(ThemeContext);
 	const className = cx({
@@ -21,7 +21,7 @@ export default function Reference({ r, menu, slices, doc }) {
 	// console.log(slices)
 
 	return (
-		<Layout menu={menu}>
+		<>
 			<Seo info={doc} path={router.asPath} />
 			<section className="scrollctn">
 				<section className={`${styles.refhead} ${className}`}>
@@ -32,12 +32,13 @@ export default function Reference({ r, menu, slices, doc }) {
 						<h1>{RichText.asText(r.artist_name)}</h1>
 						<h2>{RichText.asText(r.track_name)}</h2>
 					</div>
+					<Backlink text="References" href="/references" />
 				</section>
 				<section className={className}>
 					<SliceZone sliceZone={slices} />
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 }
 

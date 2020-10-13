@@ -1,17 +1,16 @@
 import { Client } from '../lib/prismic-configuration';
 import { RichText } from 'prismic-reactjs';
 import { useRouter } from 'next/router';
-import { Layout, Seo } from '../components';
+import { Seo } from '../components';
 import TextLoop from 'react-text-loop';
 import styles from '../styles/Home.module.scss';
 
-export default function Home({ doc, menu }) {
+export default function Home({ doc }) {
 	const router = useRouter();
-	// console.log(doc)
-	// console.log(menu)
+	// console.log(doc);
 
 	return (
-		<Layout menu={menu}>
+		<>
 			<Seo info={doc} path={router.pathname} />
 
 			<div className={styles.homectn}>
@@ -24,7 +23,7 @@ export default function Home({ doc, menu }) {
 					/>
 				</h2>
 			</div>
-		</Layout>
+		</>
 	);
 }
 

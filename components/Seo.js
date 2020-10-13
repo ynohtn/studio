@@ -2,17 +2,18 @@ import Head from 'next/head';
 import { RichText } from 'prismic-reactjs';
 
 const Seo = ({ info, path }) => {
-	// console.log(info);
 	return (
-		<>
-			{info.type === 'sample_pack' ? (
-				<SmpHead info={info} path={path} />
-			) : info.type === 'reference' ? (
-				<RefHead info={info} path={path} />
-			) : (
-				<PageHead info={info} path={path} />
-			)}
-		</>
+		info && (
+			<>
+				{info.type === 'sample_pack' ? (
+					<SmpHead info={info} path={path} />
+				) : info.type === 'reference' ? (
+					<RefHead info={info} path={path} />
+				) : (
+					<PageHead info={info} path={path} />
+				)}
+			</>
+		)
 	);
 };
 

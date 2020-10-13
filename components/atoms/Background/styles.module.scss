@@ -1,0 +1,19 @@
+@import '../../../styles/settings/vars';
+
+// STATIC BACKGROUND
+.staticBg {
+	position: absolute;
+	top: 55%;
+	left: 0;
+	z-index: 69;
+	width: 100vw;
+
+	@include breakpoint($large) {
+		top: 25%;
+	}
+
+	img {
+		width: 100%;
+		object-fit: cover;
+	}
+}

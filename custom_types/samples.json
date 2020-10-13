@@ -1,46 +1,70 @@
 {
-	"Main": {
-		"uid": {
-			"type": "UID",
-			"config": {
-				"label": "Nom de la page",
-				"placeholder": "nom de la page"
-			}
-		},
-		"samples_title": {
-			"type": "StructuredText",
-			"config": {
-				"single": "heading1",
-				"label": "Titre de la page",
-				"placeholder": "titre de la page"
-			}
-		},
-		"body": {
-			"type": "Slices",
-			"fieldset": "Slice zone",
-			"config": {
-				"labels": {},
-				"choices": {
-					"list_of_articles": {
-						"type": "Slice",
-						"fieldset": "List of Articles",
-						"description": "Section title and article list",
-						"icon": "photo_filter",
-						"non-repeat": {},
-						"repeat": {
-							"sample": {
-								"type": "Link",
-								"config": {
-									"select": "document",
-									"customtypes": ["sample_pack"],
-									"label": "Sample Pack to link",
-									"placeholder": "Select the pack you want to show here"
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Nom de la page",
+        "placeholder" : "nom de la page"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Titre de la page",
+        "placeholder" : "titre de la page"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : { },
+        "choices" : {
+          "list_of_articles" : {
+            "type" : "Slice",
+            "fieldset" : "List of Articles",
+            "description" : "Section title and article list",
+            "icon" : "photo_filter",
+            "non-repeat" : { },
+            "repeat" : {
+              "sample" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "sample_pack" ],
+                  "label" : "Sample Pack to link",
+                  "placeholder" : "Select the pack you want to show here"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "SEO" : {
+    "seo_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo Title",
+        "placeholder" : "Seo Title"
+      }
+    },
+    "seo_desc" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo Desc",
+        "placeholder" : "Seo Desc"
+      }
+    },
+    "seo_banner" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Seo Banner"
+      }
+    }
+  }
 }
