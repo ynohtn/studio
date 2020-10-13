@@ -2,12 +2,17 @@ import Head from 'next/head';
 import ThemeContext from '../utils/context/themeContext';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { ErrorBoundary } from '../components';
+import {
+	Header,
+	Layout,
+	Footer,
+	Background,
+	ErrorBoundary
+} from '../components';
 import '../styles/_globals.scss';
 
 const App = ({ Component, pageProps }) => {
 	const [darkMode, setDarkMode] = useState(true);
-
 	return (
 		<div className={darkMode ? 'darkMode' : 'lightMode'}>
 			<Head>
@@ -20,11 +25,22 @@ const App = ({ Component, pageProps }) => {
 			</Head>
 
 			<ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+				<Header menu={pageProps.menu} />
+
 				<ErrorBoundary>
 					<AnimatePresence exitBeforeEnter>
-						<Component {...pageProps} />
+						<Layout
+							key={`layout-${pageProps.doc.type}`}
+							type={pageProps.doc.type}
+						>
+							<Component {...pageProps} />
+						</Layout>
 					</AnimatePresence>
 				</ErrorBoundary>
+
+				<Footer />
+
+				<Background url={'/wavesbg.svg'} />
 			</ThemeContext.Provider>
 		</div>
 	);

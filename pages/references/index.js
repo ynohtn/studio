@@ -5,19 +5,19 @@ import { useRouter } from 'next/router';
 import { Layout, Grid, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 
-export default function References({ doc, items, menu }) {
+export default function References({ doc, items }) {
 	const router = useRouter();
 	// console.log(items);
 	// console.log(doc);
 
 	return (
-		<Layout menu={menu}>
+		<>
 			<Seo info={doc} path={router.pathname} />
 
 			<h1 className={styles.pad}>{RichText.asText(doc.data.title)}</h1>
 
-			<Grid items={items} />
-		</Layout>
+			<Grid items={items} type={doc.type} />
+		</>
 	);
 }
 

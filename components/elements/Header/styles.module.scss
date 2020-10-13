@@ -69,11 +69,13 @@
 	&:after {
 		// MAKE TRIANGLE EQUILATERAL = (border-left-width + border-right-width) * 0.866%
 		border-bottom: 12.124px solid $white;
+		transition: 1s all ease-in-out;
 	}
 
 	a {
 		&:after {
 			border-bottom: 12.124px solid $white;
+			transition: 1s all ease-in-out;
 		}
 
 		&:hover {
@@ -88,11 +90,13 @@
 .activeLight {
 	&:after {
 		border-bottom: 12.124px solid $black;
+		transition: 1s all ease-in-out;
 	}
 
 	a {
 		&:after {
 			border-bottom: 12.124px solid $black;
+			transition: 1s all ease-in-out;
 		}
 
 		&:hover {

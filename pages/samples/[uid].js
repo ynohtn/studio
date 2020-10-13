@@ -4,13 +4,13 @@ import { useContext } from 'react';
 import ThemeContext from '../../utils/context/themeContext';
 import styles from '../../styles/Samples.module.scss';
 import { useRouter } from 'next/router';
-import { Layout, SliceZone, Seo } from '../../components';
+import { Backlink, SliceZone, Seo } from '../../components';
 import { RichText } from 'prismic-reactjs';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function SamplePack({ smp, menu, slices, doc }) {
+export default function SamplePack({ smp, slices, doc }) {
 	const router = useRouter();
 	const { darkMode } = useContext(ThemeContext);
 	const className = cx({
@@ -22,7 +22,7 @@ export default function SamplePack({ smp, menu, slices, doc }) {
 	// console.log(router);
 
 	return (
-		<Layout menu={menu}>
+		<>
 			<Seo info={doc} path={router.asPath} />
 			<section className="scrollctn">
 				<section className={`${styles.smphead} ${className}`}>
@@ -32,13 +32,14 @@ export default function SamplePack({ smp, menu, slices, doc }) {
 					<div className={styles.smpinfo}>
 						<h1>{RichText.asText(smp.pack_name)}</h1>
 					</div>
+					<Backlink text="Samples" href="/samples" />
 				</section>
 
 				<section className={className}>
 					<SliceZone sliceZone={slices} />
 				</section>
 			</section>
-		</Layout>
+		</>
 	);
 }
 
