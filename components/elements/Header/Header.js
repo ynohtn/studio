@@ -15,19 +15,36 @@ const Header = ({ menu }) => (
 );
 
 const Nav = ({ menu }) => {
+	const { darkMode, dispatchPageType } = useContext(ThemeContext);
+
 	const router = useRouter();
 	if (menu) {
 		return (
 			<nav className={styles.nav}>
 				<ul className={styles.navList}>
-					{menu.data.menu_links.map((menuLink, index) => (
-						<NavItem
-							menuLink={menuLink}
-							linkType={menuLink.link.type}
-							routerPath={router.pathname}
-							key={`menulink-${index}`}
-						/>
-					))}
+					{menu.data.menu_links.map((menuLink, index) => {
+						const className = cx({
+							active:
+								router.pathname.includes(`/${menuLink.link.uid}`) ||
+								(router.pathname === '/' && menuLink.link.type === 'homepage')
+									? styles.active
+									: '',
+							activeDark: darkMode && styles.activeDark,
+							activeLight: !darkMode && styles.activeLight
+						});
+						const handlePageType = () =>
+							dispatchPageType({ type: menuLink.link.type });
+
+						return (
+							<NavItem
+								itemClass={className}
+								menuLink={menuLink}
+								dispatch={handlePageType}
+								linkType={menuLink.link.type}
+								key={`menulink-${index}`}
+							/>
+						);
+					})}
 				</ul>
 			</nav>
 		);
@@ -35,37 +52,11 @@ const Nav = ({ menu }) => {
 	return null;
 };
 
-const NavItem = ({ menuLink, routerPath, linkType }) => {
-	const {
-		darkMode
-		// pageType,
-		// dispatchPageType
-	} = useContext(ThemeContext);
-	const className = cx({
-		active:
-			routerPath.includes(`/${menuLink.link.uid}`) ||
-			(routerPath === '/' && linkType === 'homepage')
-				? styles.active
-				: '',
-		activeDark: darkMode && styles.activeDark,
-		activeLight: !darkMode && styles.activeLight
-	});
-	// const router = useRouter();
-
-	// const handlePageType = (e) => {
-	// 	dispatchPageType({ type: linkType });
-	// 	e.preventDefault();
-	// 	router.push(linkType === 'homepage' ? '/' : `/${menuLink.link.uid}`);
-	// 	console.log(pageType);
-	// };
+const NavItem = ({ menuLink, itemClass, linkType, dispatch }) => {
 	return (
-		<li className={className}>
+		<li className={itemClass}>
 			<NextLink href={linkType === 'homepage' ? '/' : `/${menuLink.link.uid}`}>
-				<a
-				// onClick={handlePageType}
-				>
-					{RichText.asText(menuLink.label)}
-				</a>
+				<a onClick={dispatch}>{RichText.asText(menuLink.label)}</a>
 			</NextLink>
 		</li>
 	);
