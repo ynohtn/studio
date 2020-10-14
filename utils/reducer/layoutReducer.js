@@ -1,6 +1,4 @@
 const layoutReducer = (state, action) => {
-	// console.log(state);
-
 	switch (action.type) {
 		case 'reference':
 			return 'reference';
