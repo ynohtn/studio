@@ -1,4 +1,4 @@
-const layoutReducer = (state, action) => {
+const pageTypeReducer = (state, action) => {
 	switch (action.type) {
 		case 'reference':
 			return 'reference';
@@ -17,4 +17,4 @@ const layoutReducer = (state, action) => {
 	}
 };
 
-export default layoutReducer;
+export default pageTypeReducer;
