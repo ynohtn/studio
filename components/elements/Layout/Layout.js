@@ -27,7 +27,7 @@ const Layout = memo(({ children }) => {
 			}}
 			className={styles.layout}
 		>
-			<div className={styles.layoutSizer}>{children}</div>
+			{children}
 		</motion.div>
 	);
 });

@@ -19,12 +19,9 @@ const App = ({ Component, pageProps }) => {
 	const pageTypeRef = useRef(pageType);
 
 	useEffect(() => {
-		window.scrollTo(0, 1);
 		pageType !== pageTypeRef.current && (pageTypeRef.current = pageType);
 		dispatchPageType({ type: pageTypeRef.current });
 	}, [pageType]);
-
-	// console.log(pageTypeRef);
 
 	return (
 		pageProps && (
