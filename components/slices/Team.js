@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { gsap } from 'gsap';
 import { RichText } from 'prismic-reactjs';
+import { gsap } from 'gsap';
 
 const Team = ({ slice }) => {
 	useEffect(() => {
