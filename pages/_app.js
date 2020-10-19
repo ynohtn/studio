@@ -1,7 +1,7 @@
+import { useState, useReducer, useRef, useEffect } from 'react';
 import Head from 'next/head';
 import ThemeContext from '../utils/context/themeContext';
-import { useState, useReducer, useRef, useEffect } from 'react';
-import pageTypeReducer from '../utils/reducer/layoutReducer';
+import pageTypeReducer from '../utils/reducer/pageTypeReducer';
 
 import { AnimatePresence } from 'framer-motion';
 import {
@@ -25,9 +25,11 @@ const App = ({ Component, pageProps }) => {
 
 	return (
 		pageProps && (
-			<div className={darkMode ? 'darkMode' : 'lightMode'}>
+			<div className={`${darkMode ? 'darkMode' : 'lightMode'}`}>
 				<Head>
 					<meta name="robots" content="noindex, nofollow" />
+					<meta name="apple-mobile-web-app-capable" content="yes" />
+					<meta name="mobile-web-app-capable" content="yes" />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 				<ThemeContext.Provider

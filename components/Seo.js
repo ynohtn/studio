@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { RichText } from 'prismic-reactjs';
+import Head from 'next/head';
 
 const Seo = ({ info, path }) => {
 	return (
